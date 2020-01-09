@@ -6,6 +6,7 @@ function App() {
     <Container fluid>
       <Menu attached="top">
         <Menu.Item>Home</Menu.Item>
+        <Menu.Item>Interval Generator</Menu.Item>
       </Menu>
     </Container>
   );
