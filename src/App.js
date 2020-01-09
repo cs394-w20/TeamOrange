@@ -7,6 +7,10 @@ function App() {
       <Menu attached="top">
         <Menu.Item>Home</Menu.Item>
       </Menu>
+      <Menu attached="top">
+        <Menu.Item>Workout</Menu.Item>
+      </Menu>
+
     </Container>
   );
 }
