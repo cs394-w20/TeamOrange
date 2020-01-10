@@ -11,9 +11,7 @@ function App() {
       <Menu attached="top">
         <Menu.Item>Workout</Menu.Item>
       </Menu>
-      <Menu attached="bottom">
-        <Menu.Item>Timer</Menu.Item>
-      </Menu>
+
     </Container>
   );
 }
