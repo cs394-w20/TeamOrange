@@ -10,6 +10,7 @@ function App() {
       </Menu>
       <Menu attached="top">
         <Menu.Item>Workout</Menu.Item>
+        <Menu.Item>Equipment</Menu.Item>
       </Menu>
       <Menu attached="bottom">
         <Menu.Item>Timer</Menu.Item>
