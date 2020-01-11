@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from "react";
-import { Button } from 'semantic-ui-react';
-
-const buttonColor = selected => (selected ? "success" : null);
+import { Card } from 'semantic-ui-react';
 
 const ExerciseList = ({ exercises }) => {
 
   return(
-    <Button.Group>
+    <Card.Group>
       {exercises.map(exercise => (
           <Exercise
             key={exercise.id}
             exercise={exercise}
           />
         ))}
-    </Button.Group>
+    </Card.Group>
   )
 };
 
 const Exercise = ({ exercise }) => (
-  <Button>
-    Exercise ID {exercise.id} : {exercise.title}
-  </Button>
+  <Card>
+    <Card.Content>
+      <Card.Header>
+        Exercise ID {exercise.id}
+      </Card.Header>
+      {exercise.title}
+    </Card.Content>
+  </Card>
 );
 
 export default ExerciseList;

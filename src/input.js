@@ -13,4 +13,4 @@ const EquipmentList  = ({items}) =>
     </div>
 );
 
-export default Checkbox;
+export default EquipmentList;
