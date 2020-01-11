@@ -1,0 +1,80 @@
+{
+    "Excercises":{
+        "Burpee": {
+            "Equiptment": "None",
+            "Duration": 60
+        },
+        "Squat": {
+            "Equiptment": "None",
+            "Duration": 60
+        },
+        "Lateral Slide": {
+            "Equiptment": "None",
+            "Duration": 60
+        },
+        "Reverse Lunge": {
+            "Equiptment": "None",
+            "Duration": 60
+        },
+        "Mountain Climber": {
+            "Equiptment": "None",
+            "Duration": 60
+        },
+        "Scissor Kick": {
+            "Equiptment": "None",
+            "Duration": 60
+        },
+        "Sqiderman": {
+            "Equiptment": "None",
+            "Duration": 60
+        },
+        "Goblet Squat": {
+            "Equiptment": "Dumbbell",
+            "Duration": 30
+        },
+        "Dumbbell Overhead Press": {
+            "Equiptment": "Dumbbell",
+            "Duration": 30
+        },
+        "Dumbbell Bicep Curl": {
+            "Equiptment": "Dumbbell",
+            "Duration": 30
+        },
+        "Dumbbell Thurster":{
+            "Equiptment": "Dumbbell",
+            "Duration": 30 
+        },
+        "Tricep Extension": {
+            "Equiptment": "Dumbbell",
+            "Duration": 30 
+        },
+        "Kettlebell Hip Thrust": {
+            "Equiptment": "Kettlebell",
+            "Duration": 30
+        },
+        "Kettlebell Swing": {
+            "Equiptment": "Kettlebell",
+            "Duration": 30
+        },
+        "Kettlebell Thrust": {
+            "Equiptment": "Kettlebell",
+            "Duration": 30
+        },
+        "Pull-Up": {
+            "Equiptment": "Pull-Up Bar",
+            "Duration": 30
+        },
+        "Wide Grip Pull-Up": {
+            "Equiptment": "Pull-Up Bar",
+            "Duration": 30
+        },
+        "Chin-Up": {
+            "Equiptment": "Pull-Up Bar",
+            "Duration": 30
+        },
+        "Dips": {
+            "Equiptment": "Dip Bar",
+            "Duration": 30
+        }
+    }
+}
