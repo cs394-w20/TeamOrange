@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Menu, Button } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 const buttonColor = selected => (selected ? "success" : null);
 
