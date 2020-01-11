@@ -1,5 +1,20 @@
 import React from 'react';
 import { Container, Menu } from 'semantic-ui-react';
+import ExerciseList from  './components/ExerciseList'
+
+const db = {
+  title: "Exercises",
+  exercises: [
+    {
+      id: "1",
+      title: "Mountain climbers"
+    },
+    {
+      id: "2",
+      title: "Push ups"
+    }
+  ]
+};
 
 function App() {
   return (
@@ -15,6 +30,7 @@ function App() {
       <Menu attached="bottom">
         <Menu.Item>Timer</Menu.Item>
       </Menu>
+      <ExerciseList exercises={db.exercises}/>
     </Container>
   );
 }
