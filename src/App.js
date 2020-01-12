@@ -1,22 +1,23 @@
 import React from 'react';
 import ExerciseList from  './components/ExerciseList'
 import EquipmentList from './input'
+import db from './shared/exercises.js'
 import { Container, Menu, Checkbox} from 'semantic-ui-react';
 
 
-const db = {
-  title: "Exercises",
-  exercises: [
-    {
-      id: "1",
-      title: "Mountain climbers"
-    },
-    {
-      id: "2",
-      title: "Push ups"
-    }
-  ]
-};
+// const db = {
+//   title: "Exercises",
+//   exercises: [
+//     {
+//       id: "1",
+//       title: "Mountain climbers"
+//     },
+//     {
+//       id: "2",
+//       title: "Push ups"
+//     }
+//   ]
+// };
 
 const welcome = {
   title: "NU-HIIT"
