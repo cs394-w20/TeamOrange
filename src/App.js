@@ -1,22 +1,23 @@
 import React from 'react';
 import ExerciseList from  './components/ExerciseList'
 import EquipmentList from './input'
+import db from './shared/exercises.js'
 import { Container, Menu, Checkbox} from 'semantic-ui-react';
 
 
-const db = {
-  title: "Exercises",
-  exercises: [
-    {
-      id: "1",
-      title: "Mountain climbers"
-    },
-    {
-      id: "2",
-      title: "Push ups"
-    }
-  ]
-};
+// const db = {
+//   title: "Exercises",
+//   exercises: [
+//     {
+//       id: "1",
+//       title: "Mountain climbers"
+//     },
+//     {
+//       id: "2",
+//       title: "Push ups"
+//     }
+//   ]
+// };
 
 const welcome = {
   title: "NU-HIIT"
@@ -70,7 +71,7 @@ const App = () =>  (
     <h1>{ welcome.title }</h1>
     <h3>{ welcome.instruction}</h3>
     <EquipmentList items={welcome.equipment_list}/>
-    <ExerciseList exercises={db.exercises}/>
+    <ExerciseList title={db.title} exercises={db.exercises}/>
   </div>
 );
 
