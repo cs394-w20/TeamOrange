@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 export const EquipmentContext = React.createContext({
-    lst:[],
-    updatelst:({new-lst}) => 
+    lst: [],
+    updateLst: () => {}
 })
