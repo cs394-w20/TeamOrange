@@ -51,7 +51,7 @@ const App = () =>  (
     <h1>{ welcome.title }</h1>
     <h3>{ welcome.instruction}</h3>
     <EquipmentList items={welcome.equipment_list}/>
-    <ExerciseList exercises={db.exercises}/>
+    <ExerciseList title={db.title} exercises={db.exercises}/>
   </div>
 );
 
