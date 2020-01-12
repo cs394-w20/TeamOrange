@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ExerciseList from "./components/ExerciseList";
 import EquipmentList from "./input";
 import db from "./shared/exercises.js";
 import { Container, Menu, Checkbox } from "semantic-ui-react";
+import { EquipmentContext } from "./components/Equipment-context";
 
 // const db = {
 //   title: "Exercises",
@@ -65,13 +66,25 @@ const welcome = {
   ]
 };
 
-const App = () => (
-  <div>
-    <h1>{welcome.title}</h1>
-    <h3>{welcome.instruction}</h3>
-    <EquipmentList items={welcome.equipment_list} />
-    <ExerciseList title={db.title} exercises={db.exercises} />
-  </div>
-);
+const App = () => {
+  const [lst, setLst] = useState([]);
+
+  const updateLst = (newLst) => {
+    console.log(newLst);
+
+    setLst(newLst);
+  }
+
+  return (
+    <EquipmentContext.Provider value={{ lst, updateLst }}>
+      <div>
+        <h1>{welcome.title}</h1>
+        <h3>{welcome.instruction}</h3>
+        <EquipmentList items={welcome.equipment_list} />
+        <ExerciseList title={db.title} exercises={db.exercises} />
+      </div>
+    </EquipmentContext.Provider>
+  );
+};
 
 export default App;
