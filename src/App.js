@@ -1,6 +1,6 @@
 import React from "react";
 import ExerciseList from "./components/ExerciseList";
-import EquipmentList from "./input";
+import {EquipmentList, lst} from "./input";
 import db from "./shared/exercises.js";
 import { Container, Menu, Checkbox } from "semantic-ui-react";
 
