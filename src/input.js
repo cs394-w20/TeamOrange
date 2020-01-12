@@ -16,7 +16,3 @@ function Equipment ({item})
         <span> {item.title}</span>
     </div>);
 };
-
-
-
-export default EquipmentList;
