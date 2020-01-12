@@ -1,9 +1,8 @@
-import React from 'react';
-import ExerciseList from  './components/ExerciseList'
-import EquipmentList from './input'
-import db from './shared/exercises.js'
-import { Container, Menu, Checkbox} from 'semantic-ui-react';
-
+import React from "react";
+import ExerciseList from "./components/ExerciseList";
+import EquipmentList from "./input";
+import db from "./shared/exercises.js";
+import { Container, Menu, Checkbox } from "semantic-ui-react";
 
 // const db = {
 //   title: "Exercises",
@@ -20,58 +19,58 @@ import { Container, Menu, Checkbox} from 'semantic-ui-react';
 // };
 
 const welcome = {
-  title: "NU-HIIT"
-  ,instruction: "Select your equipment:"
-  ,equipment_list: [
+  title: "NU-HIIT",
+  instruction: "Select your equipment:",
+  equipment_list: [
     {
-      "id": "1",
-      "title": "Jumping rope",
+      id: "1",
+      title: "Jumping rope"
     },
     {
-      "id": "2",
-      "title": "Power ball",
+      id: "2",
+      title: "Power ball"
     },
     {
-      "id": "3",
-      "title": "Dumbbells",
+      id: "3",
+      title: "Dumbbells"
     },
     {
-      "id": "4",
-      "title": "Barbell / Plates",
+      id: "4",
+      title: "Barbell / Plates"
     },
     {
-      "id": "5",
-      "title": "Pull up bar",
+      id: "5",
+      title: "Pull up bar"
     },
     {
-      "id": "6",
-      "title": "Kettlebell",
+      id: "6",
+      title: "Kettlebell"
     },
     {
-      "id": "7",
-      "title": "Jumping box",
+      id: "7",
+      title: "Jumping box"
     },
     {
-      "id": "8",
-      "title": "Rings",
+      id: "8",
+      title: "Rings"
     },
     {
-      "id": "9",
-      "title": "Resistance Band",
+      id: "9",
+      title: "Resistance Band"
     },
     {
-      "id": "10",
-      "title": "Sandbag",
+      id: "10",
+      title: "Sandbag"
     }
   ]
 };
 
-const App = () =>  (
+const App = () => (
   <div>
-    <h1>{ welcome.title }</h1>
-    <h3>{ welcome.instruction}</h3>
-    <EquipmentList items={welcome.equipment_list}/>
-    <ExerciseList title={db.title} exercises={db.exercises}/>
+    <h1>{welcome.title}</h1>
+    <h3>{welcome.instruction}</h3>
+    <EquipmentList items={welcome.equipment_list} />
+    <ExerciseList title={db.title} exercises={db.exercises} />
   </div>
 );
 
