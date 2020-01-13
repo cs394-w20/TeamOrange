@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Menu, Checkbox } from "semantic-ui-react";
-import { EquipmentContext } from "./components/Equipment-context";
+import { EquipmentContext } from "./components/EquipmentContext";
 
 const EquipmentList = ({ items }) => {
   return (
