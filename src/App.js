@@ -67,8 +67,8 @@ const NavMenu = ({ location }) => {
   console.log(location);
 
   return (
-    <Menu pointing inverted borderless color="blue">
-      <Header inverted className="nav-title">
+    <Menu pointing inverted borderless attached color="blue">
+      <Header as={Link} to="/" inverted className="nav-title">
         {welcome.title}
       </Header>
       <Container>
