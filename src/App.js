@@ -10,11 +10,14 @@ import {
 import ExerciseList from "./components/ExerciseList";
 import EquipmentList from "./input";
 import db from "./shared/exercises.js";
-import { Container, Menu, Checkbox } from "semantic-ui-react";
-import { EquipmentContext } from "./components/Equipment-context";
+import { Container, Menu, Header } from "semantic-ui-react";
+import { EquipmentContext } from "./components/EquipmentContext";
+import "./styles/menu.css";
+
+import { EQUIPMENT_LIST } from "./components/constants";
 
 const welcome = {
-  title: "NU-HIIT",
+  title: "NU HIIT",
   instruction: "Select your equipment:",
   equipment_list: [
     {
@@ -64,18 +67,38 @@ const NavMenu = ({ location }) => {
   console.log(location);
 
   return (
-    <Menu>
-      <Menu.Item name="home" active={location.pathname === "/"}>
-        <Link to="/">Home</Link>
-      </Menu.Item>
+    <Menu pointing inverted borderless attached color="blue">
+      <Header as={Link} to="/" inverted className="nav-title">
+        {welcome.title}
+      </Header>
+      <Container>
+        <Menu.Item
+          as={Link}
+          to="/"
+          name="home"
+          active={location.pathname === "/"}
+        >
+          Home
+        </Menu.Item>
 
-      <Menu.Item name="timer" active={location.pathname === "/timer"}>
-        <Link to="/timer">Timer</Link>
-      </Menu.Item>
+        <Menu.Item
+          as={Link}
+          to="/timer"
+          name="timer"
+          active={location.pathname === "/timer"}
+        >
+          Timer
+        </Menu.Item>
 
-      <Menu.Item name="about" active={location.pathname === "/about"}>
-        <Link to="/about">About</Link>
-      </Menu.Item>
+        <Menu.Item
+          as={Link}
+          to="/about"
+          name="about"
+          active={location.pathname === "/about"}
+        >
+          About
+        </Menu.Item>
+      </Container>
     </Menu>
   );
 };
@@ -94,22 +117,23 @@ const App = () => {
     <Router>
       <EquipmentContext.Provider value={{ lst, updateLst }}>
         <div>
-          <h1>{welcome.title}</h1>
           <AppMenu />
 
-          <Switch>
-            <Route exact path="/">
-              <h3>{welcome.instruction}</h3>
-              <EquipmentList items={welcome.equipment_list} />
-              <ExerciseList title={db.title} exercises={db.exercises} />
-            </Route>
-            <Route path="/timer">
-              <p>timer stuff</p>
-            </Route>
-            <Route path="/about">
-              <p>about stuff</p>
-            </Route>
-          </Switch>
+          <Container>
+            <Switch>
+              <Route exact path="/">
+                <h3>{welcome.instruction}</h3>
+                <EquipmentList items={EQUIPMENT_LIST} />
+                <ExerciseList title={db.title} exercises={db.exercises} />
+              </Route>
+              <Route path="/timer">
+                <p>timer stuff</p>
+              </Route>
+              <Route path="/about">
+                <p>about stuff</p>
+              </Route>
+            </Switch>
+          </Container>
         </div>
       </EquipmentContext.Provider>
     </Router>

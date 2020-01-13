@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Container, Menu, Checkbox } from "semantic-ui-react";
-import { EquipmentContext } from "./components/Equipment-context";
+import { Button, Checkbox } from "semantic-ui-react";
+import { EquipmentContext } from "./components/EquipmentContext";
 
 const EquipmentList = ({ items }) => {
   return (
-    <EquipmentContext.Consumer>
-      {({ lst, updateLst }) => (
-        <div>
-          {items.map(item => (
-            <Equipment key={item.id} state={{ lst, updateLst }} item={item} />
-          ))}
-        </div>
-      )}
-    </EquipmentContext.Consumer>
+    <div>
+      <EquipmentContext.Consumer>
+        {({ lst, updateLst }) => (
+          <React.Fragment>
+            {items.map(item => (
+              <Equipment key={item.id} state={{ lst, updateLst }} item={item} />
+            ))}
+          </React.Fragment>
+        )}
+      </EquipmentContext.Consumer>
+      <br />
+      <Button primary>Generate Workout</Button>
+    </div>
   );
 };
 

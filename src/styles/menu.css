@@ -1,0 +1,9 @@
+.ui.inverted.blue.menu.borderless.pointing .active.item:after {
+  background-color: white !important;
+}
+
+.nav-title {
+    margin: 0 10px !important;
+    display: flex;
+    align-items: center;
+}
