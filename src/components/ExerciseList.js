@@ -22,7 +22,7 @@ const ExerciseList = ({ title, exercises }) => {
       </Header>
       <Card.Group itemsPerRow="1">
         {filteredExercises.map(exercise => (
-          <Exercise key={Object.keys} exercise={exercise} />
+          <Exercise key={exercise.title} exercise={exercise} />
         ))}
       </Card.Group>
     </Container>

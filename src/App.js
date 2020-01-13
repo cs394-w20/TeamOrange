@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { Route, Link, BrowserRouter as Router, Switch } from "react-router-dom";
+import {
+  Route,
+  Link,
+  BrowserRouter as Router,
+  Switch,
+  withRouter
+} from "react-router-dom";
 import ExerciseList from "./components/ExerciseList";
 import EquipmentList from "./input";
 import db from "./shared/exercises.js";
@@ -54,6 +60,28 @@ const welcome = {
   ]
 };
 
+const NavMenu = ({ location }) => {
+  console.log(location);
+
+  return (
+    <Menu>
+      <Menu.Item name="home" active={location.pathname === "/"}>
+        <Link to="/">Home</Link>
+      </Menu.Item>
+
+      <Menu.Item name="timer" active={location.pathname === "/timer"}>
+        <Link to="/timer">Timer</Link>
+      </Menu.Item>
+
+      <Menu.Item name="about" active={location.pathname === "/about"}>
+        <Link to="/about">About</Link>
+      </Menu.Item>
+    </Menu>
+  );
+};
+
+const AppMenu = withRouter(NavMenu);
+
 const App = () => {
   const [lst, setLst] = useState([]);
 
@@ -67,17 +95,7 @@ const App = () => {
       <EquipmentContext.Provider value={{ lst, updateLst }}>
         <div>
           <h1>{welcome.title}</h1>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/timer">Timer</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-          </ul>
+          <AppMenu />
 
           <Switch>
             <Route exact path="/">
