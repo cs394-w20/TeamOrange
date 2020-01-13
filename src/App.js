@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
+import {
+  Route,
+  Link,
+  BrowserRouter as Router,
+  Switch,
+  withRouter
+} from "react-router-dom";
 import ExerciseList from "./components/ExerciseList";
 import EquipmentList from "./input";
 import db from "./shared/exercises.js";
 import { Container, Menu, Checkbox } from "semantic-ui-react";
 import { EquipmentContext } from "./components/Equipment-context";
-
-// const db = {
-//   title: "Exercises",
-//   exercises: [
-//     {
-//       id: "1",
-//       title: "Mountain climbers"
-//     },
-//     {
-//       id: "2",
-//       title: "Push ups"
-//     }
-//   ]
-// };
 
 const welcome = {
   title: "NU-HIIT",
@@ -66,24 +60,59 @@ const welcome = {
   ]
 };
 
+const NavMenu = ({ location }) => {
+  console.log(location);
+
+  return (
+    <Menu>
+      <Menu.Item name="home" active={location.pathname === "/"}>
+        <Link to="/">Home</Link>
+      </Menu.Item>
+
+      <Menu.Item name="timer" active={location.pathname === "/timer"}>
+        <Link to="/timer">Timer</Link>
+      </Menu.Item>
+
+      <Menu.Item name="about" active={location.pathname === "/about"}>
+        <Link to="/about">About</Link>
+      </Menu.Item>
+    </Menu>
+  );
+};
+
+const AppMenu = withRouter(NavMenu);
+
 const App = () => {
   const [lst, setLst] = useState([]);
 
-  const updateLst = (newLst) => {
+  const updateLst = newLst => {
     console.log(newLst);
-
     setLst(newLst);
-  }
+  };
 
   return (
-    <EquipmentContext.Provider value={{ lst, updateLst }}>
-      <div>
-        <h1>{welcome.title}</h1>
-        <h3>{welcome.instruction}</h3>
-        <EquipmentList items={welcome.equipment_list} />
-        <ExerciseList title={db.title} exercises={db.exercises} />
-      </div>
-    </EquipmentContext.Provider>
+    <Router>
+      <EquipmentContext.Provider value={{ lst, updateLst }}>
+        <div>
+          <h1>{welcome.title}</h1>
+          <AppMenu />
+
+          <Switch>
+            <Route exact path="/">
+              <h3>{welcome.instruction}</h3>
+              <EquipmentList items={welcome.equipment_list} />
+              <ExerciseList title={db.title} exercises={db.exercises} />
+            </Route>
+            <Route path="/timer">
+              <p>timer stuff</p>
+            </Route>
+            <Route path="/about">
+              <p>about stuff</p>
+            </Route>
+          </Switch>
+        </div>
+      </EquipmentContext.Provider>
+    </Router>
   );
 };
 
