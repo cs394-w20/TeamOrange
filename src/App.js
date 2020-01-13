@@ -1,23 +1,11 @@
 import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
+import { Route, Link, BrowserRouter as Router, Switch } from "react-router-dom";
 import ExerciseList from "./components/ExerciseList";
 import EquipmentList from "./input";
 import db from "./shared/exercises.js";
 import { Container, Menu, Checkbox } from "semantic-ui-react";
 import { EquipmentContext } from "./components/Equipment-context";
-
-// const db = {
-//   title: "Exercises",
-//   exercises: [
-//     {
-//       id: "1",
-//       title: "Mountain climbers"
-//     },
-//     {
-//       id: "2",
-//       title: "Push ups"
-//     }
-//   ]
-// };
 
 const welcome = {
   title: "NU-HIIT",
@@ -69,21 +57,44 @@ const welcome = {
 const App = () => {
   const [lst, setLst] = useState([]);
 
-  const updateLst = (newLst) => {
+  const updateLst = newLst => {
     console.log(newLst);
-
     setLst(newLst);
-  }
+  };
 
   return (
-    <EquipmentContext.Provider value={{ lst, updateLst }}>
-      <div>
-        <h1>{welcome.title}</h1>
-        <h3>{welcome.instruction}</h3>
-        <EquipmentList items={welcome.equipment_list} />
-        <ExerciseList title={db.title} exercises={db.exercises} />
-      </div>
-    </EquipmentContext.Provider>
+    <Router>
+      <EquipmentContext.Provider value={{ lst, updateLst }}>
+        <div>
+          <h1>{welcome.title}</h1>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/timer">Timer</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+
+          <Switch>
+            <Route exact path="/">
+              <h3>{welcome.instruction}</h3>
+              <EquipmentList items={welcome.equipment_list} />
+              <ExerciseList title={db.title} exercises={db.exercises} />
+            </Route>
+            <Route path="/timer">
+              <p>timer stuff</p>
+            </Route>
+            <Route path="/about">
+              <p>about stuff</p>
+            </Route>
+          </Switch>
+        </div>
+      </EquipmentContext.Provider>
+    </Router>
   );
 };
 
