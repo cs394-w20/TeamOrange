@@ -1,3 +1,5 @@
+export const MAX_EXERCISES = 10;
+
 export const EQUIPMENT_LIST = [
   {
     id: "1",

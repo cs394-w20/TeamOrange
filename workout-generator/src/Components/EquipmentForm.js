@@ -9,7 +9,7 @@ const EquipmentForm = () => {
   const { equipment, addEquip, generateWorkouts } = workoutContext;
 
   return (
-    <Segment padded style={{ width: "80%"}}>
+    <Segment padded color="purple" style={{ width: "80%"}}>
       <Form size="large">
         <Form.Field>
           <Header style={{ color: "blueviolet" }} dividing>
