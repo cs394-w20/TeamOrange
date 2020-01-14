@@ -25,7 +25,7 @@ const WorkoutList = () => {
   const workoutList = shuffleList(workouts.slice(0, MAX_EXERCISES))
 
   return (
-    <Card.Group style={{ textAlign: "left", width: "80%"}}> 
+    <Card.Group style={{ textAlign: "left", width: "80%"}} itemsPerRow={1}> 
       {workoutList.map(exercise => <Workout exercise={exercise} key={exercise.Title} />)}
     </Card.Group>
   )
