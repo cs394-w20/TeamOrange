@@ -11,6 +11,7 @@ import db from "./shared/exercises-alt";
 import { Container } from "semantic-ui-react";
 import { EquipmentContext } from "./components/EquipmentContext";
 import NavMenu from "./components/NavMenu"
+import Footer from "./components/Footer"
 import "./styles/menu.css";
 
 import { EQUIPMENT_LIST, WELCOME } from "./components/constants";
@@ -46,10 +47,10 @@ const App = () => {
               </Route>
             </Switch>
           </Container>
+          <Footer />
         </div>
       </EquipmentContext.Provider>
     </Router>
   );
 };
-
 export default App;
