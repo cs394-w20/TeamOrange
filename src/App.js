@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import ExerciseList from "./components/ExerciseList";
 import EquipmentList from "./input";
-import db from "./shared/exercises.js";
+import db from "./shared/exercises-alt";
 import { Container } from "semantic-ui-react";
 import { EquipmentContext } from "./components/EquipmentContext";
 import NavMenu from "./components/NavMenu"
@@ -36,7 +36,7 @@ const App = () => {
               <Route exact path="/">
                 <h3>{WELCOME.instruction}</h3>
                 <EquipmentList items={EQUIPMENT_LIST} />
-                <ExerciseList title={db.title} exercises={db.exercises} />
+                <ExerciseList title="Exercise List" exercises={db.exercises} />
               </Route>
               <Route path="/timer">
                 <p>timer stuff</p>
