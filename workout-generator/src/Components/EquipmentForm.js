@@ -9,10 +9,15 @@ const EquipmentForm = () => {
   const { equipment, addEquip, generateWorkouts } = workoutContext;
 
   return (
-    <Segment padded>
+    <Segment padded style={{ width: "80%"}}>
       <Form size="large">
         <Form.Field>
-          <Header content="What Equipment Do You Have?" style={{ color: "blueviolet" }} dividing />
+          <Header style={{ color: "blueviolet" }} dividing>
+            What Equipment Do You Have?
+            <Header.Subheader>
+              Selecting more than one option will give you different workouts for different equipments. 
+            </Header.Subheader>
+          </Header>
         </Form.Field>
         {EQUIPMENT_LIST.map(item => {
           return (
