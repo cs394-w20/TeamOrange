@@ -1,8 +1,19 @@
 import React, { createContext, useState } from 'react';
+import { firebaseDb } from './firebaseDb';
 import * as data from './wkouts.json';
 
 const { Exercises } = data;
-const exercises = Object.values(Exercises)
+
+const grabExercises = async () => {
+  const dataPayload = await firebaseDb.once('value');
+
+  console.log(dataPayload.val());
+
+  return dataPayload.exists() ? dataPayload.val() : {};
+};
+grabExercises();
+
+const exercises = Object.values(Exercises);
 const WorkoutContext = createContext(null);
 const { Provider } = WorkoutContext; 
 
