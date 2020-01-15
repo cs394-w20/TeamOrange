@@ -24,6 +24,7 @@ const initialWorkouts = exercises.filter(val => {
 const StateProvider = ( { children }) => {
   const [equipment, setEquipment] = useState(["None"]);
   const [workouts, setWorkouts] = useState(initialWorkouts);
+  const [exercisesAmount, setExercisesAmount] = useState(8);
 
   const addEquip = value => {
     equipment.includes(value) ? 
@@ -42,7 +43,9 @@ const StateProvider = ( { children }) => {
     equipment,
     addEquip,
     workouts, 
-    generateWorkouts
+    generateWorkouts,
+    exercisesAmount,
+    setExercisesAmount
   };
 
   return <Provider value={api}>{children}</Provider>;

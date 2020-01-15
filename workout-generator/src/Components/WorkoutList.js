@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
 import { Card, Embed, Button } from 'semantic-ui-react';
 import { WorkoutContext } from '../context';
-import { MAX_EXERCISES } from '../constants';
 import { shuffleList } from '../utilities';
 
 
 const WorkoutList = () => {
   const workoutContext = useContext(WorkoutContext)
-  const { workouts } = workoutContext;
+  const { workouts, exercisesAmount } = workoutContext;
 
-  const workoutList = shuffleList(workouts.slice(0, MAX_EXERCISES))
+  const workoutList = shuffleList(workouts.slice(0, exercisesAmount))
 
   return (
     <Card.Group style={{ textAlign: "left", width: "80%"}} itemsPerRow={1}> 
