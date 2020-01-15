@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
-import { Grid, Header, Button, Segment, Divider } from 'semantic-ui-react';
-import HIITheader from '../Components/TopMenu';
+import { Grid, Header, Button, Segment } from 'semantic-ui-react';
 import WorkoutList from '../Components/WorkoutList';
 import { Link } from 'react-router-dom';
 import { WorkoutContext } from '../context';
@@ -10,7 +9,7 @@ const WorkoutsPage = () => {
   const { equipment } = workoutContext;
  
   const selectedEquipment =
-    (equipment.length == 1 & equipment[0] == "None") ? 
+    (equipment.length === 1 & equipment[0] === "None") ? 
     "No Equipment" : 
     equipment.join(", ") 
 
