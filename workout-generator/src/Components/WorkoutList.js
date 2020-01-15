@@ -5,7 +5,7 @@ import { MAX_EXERCISES } from '../constants';
 import { shuffleList } from '../utilities';
 
 const Workout = ({ exercise }) => (
-  <Card>
+  <Card color="blue">
     <Card.Content>
       <Card.Header>{exercise.Title}</Card.Header>
       <Card.Meta>Duration: {exercise.Duration} seconds</Card.Meta>

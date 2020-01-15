@@ -7,7 +7,7 @@ const HIITheader = () => {
       <Header 
         as="h2"
         icon='heartbeat'
-        style={{ color: "blueviolet" }}
+        color="blue"
         content="NU HIIT" />
     </Segment>
   )

@@ -29,9 +29,9 @@ const WorkoutsPage = () => {
 
 const WorkoutListHeader = ({ selectedEquipment }) => {
   return (
-    <Segment color="purple" style={{ width: "80%", textAlign: "left"}}>
+    <Segment color="blue" style={{ width: "80%", textAlign: "left"}}>
       <Header dividing as="h3">
-        <Header textAlign="center" dividing content="CUSTOM WORKOUT" style={{ color: "blueviolet"}} />
+        <Header textAlign="center" dividing content="CUSTOM WORKOUT" color="blue" />
         <Header.Subheader content="Selected Workout Equipment:" />
         {selectedEquipment}
       </Header>
@@ -40,7 +40,7 @@ const WorkoutListHeader = ({ selectedEquipment }) => {
         fluid 
         as={Link} 
         to="/"
-        style={{ backgroundColor: "blueviolet", color: "white" }}
+        primary
         content="Back to Equipment"
       />
     </Segment>
