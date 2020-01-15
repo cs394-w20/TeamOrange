@@ -11,7 +11,7 @@ const grabExercises = async () => {
 
   return dataPayload.exists() ? dataPayload.val() : {};
 };
-grabExercises();
+//grabExercises();
 
 const exercises = Object.values(Exercises);
 const WorkoutContext = createContext(null);
@@ -24,6 +24,7 @@ const initialWorkouts = exercises.filter(val => {
 const StateProvider = ( { children }) => {
   const [equipment, setEquipment] = useState(["None"]);
   const [workouts, setWorkouts] = useState(initialWorkouts);
+  const [countdown, setCountdown] = useState(0);
 
   const addEquip = value => {
     equipment.includes(value) ? 
@@ -42,7 +43,9 @@ const StateProvider = ( { children }) => {
     equipment,
     addEquip,
     workouts, 
-    generateWorkouts
+    generateWorkouts,
+    countdown,
+    setCountdown 
   };
 
   return <Provider value={api}>{children}</Provider>;
