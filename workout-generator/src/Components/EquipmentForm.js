@@ -9,10 +9,10 @@ const EquipmentForm = () => {
   const { equipment, addEquip, generateWorkouts } = workoutContext;
 
   return (
-    <Segment padded color="purple" style={{ width: "80%"}}>
+    <Segment padded color="blue" style={{ width: "80%"}}>
       <Form size="large">
         <Form.Field>
-          <Header style={{ color: "blueviolet" }} dividing>
+          <Header color="blue" dividing>
             What Equipment Do You Have?
             <Header.Subheader>
               Selecting more than one option will give you different workouts for different equipments. 
@@ -34,7 +34,8 @@ const EquipmentForm = () => {
           onClick={generateWorkouts}
           as={Link} 
           to='/workouts' 
-          style={{ color: "white", backgroundColor: "blueViolet"}}>
+          primary
+        >
           Find Workouts!
         </Button>
       </Form>
