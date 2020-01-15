@@ -1,23 +1,32 @@
 import React, { useContext } from 'react';
 import { Card, Embed, Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import { WorkoutContext } from '../context';
 import { shuffleList } from '../utilities';
 
 
 const WorkoutList = () => {
   const workoutContext = useContext(WorkoutContext)
-  const { workouts, exercisesAmount } = workoutContext;
+  const { workouts, setCountdown, exercisesAmount } = workoutContext;
 
   const workoutList = shuffleList(workouts.slice(0, exercisesAmount))
 
   return (
     <Card.Group style={{ textAlign: "left", width: "80%"}} itemsPerRow={1}> 
-      {workoutList.map(exercise => <Workout exercise={exercise} key={exercise.Title} />)}
+      {workoutList.map(exercise => {
+        return (
+          <Workout 
+            exercise={exercise} 
+            key={exercise.Title}
+            setCountdown={() => setCountdown(parseInt(exercise.Duration) * 1000)} 
+          />
+        )}
+      )}
     </Card.Group>
   )
 }
 
-const Workout = ({ exercise }) => (
+const Workout = ({ exercise, setCountdown }) => (
   <Card color="blue">
     <Card.Content>
       <Card.Header>{exercise.Title}</Card.Header>
@@ -29,17 +38,22 @@ const Workout = ({ exercise }) => (
       </Card.Content>
     </Card.Content>
     <Card.Content extra>
-      <div className='ui two buttons'>
       <Button 
+        as={Link}
+        to="/timer"
+        onClick={setCountdown}
         color='green' 
-        content="START TIMER"
+        icon='time'
+        content="TIMER"
+        attached="top"
       />
       <Button 
+        icon="plus"
         basic 
         color='blue' 
         content="SAVE TO FAVORITES"
+        attached="bottom"
       />
-      </div>
     </Card.Content>
   </Card>
 );

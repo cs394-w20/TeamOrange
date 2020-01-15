@@ -1,10 +1,13 @@
 import React from 'react';
-import { Header, Segment, Card } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
+import CountdownTimer from '../Components/CountdownTimer';
 
 
 const TimerPage = () => {
   return (
-    <Header content="Timer" />
+    <Grid centered style={{ marginTop: "150px"}}>
+      <CountdownTimer />
+    </Grid>
   );
 };
 

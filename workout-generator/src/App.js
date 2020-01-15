@@ -9,8 +9,8 @@ import { WorkoutContext } from './context';
 
 const App = () => {
   const workoutContext = useContext(WorkoutContext)
-  const { equipment, workouts } = workoutContext;
-
+  const { equipment, workouts, countdown } = workoutContext;
+  console.log('duration', countdown)
   console.log('equip', equipment)
   console.log('workout list', workouts)
 
@@ -21,7 +21,7 @@ const App = () => {
         {page}
       </React.Fragment>
     )
-  }
+  };
 
   return (
     <BrowserRouter>
@@ -44,6 +44,6 @@ const App = () => {
       />
     </BrowserRouter>
   );
-}
+};
 
 export default App;
