@@ -1,12 +1,46 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Segment, Form, Checkbox, Header, Button } from 'semantic-ui-react';
+import { Segment, Form, Checkbox, Header, Button, Dropdown } from 'semantic-ui-react';
 import { EQUIPMENT_LIST } from '../constants';
 import { WorkoutContext } from '../context.js';
 
+const roundOptions = [
+  {
+    key: 1,
+    text: '1 exercise',
+    value: 1
+  },
+  {
+    key: 2,
+    text: '2 exercises',
+    value: 2
+  },
+  {
+    key: 4,
+    text: '4 exercises',
+    value: 4
+  },
+  {
+    key: 8,
+    text: '8 exercises',
+    value: 8
+  },
+  {
+    key: 16,
+    text: '16 exercises',
+    value: 16
+  }
+];
+
 const EquipmentForm = () => {
   const workoutContext = useContext(WorkoutContext);
-  const { equipment, addEquip, generateWorkouts } = workoutContext;
+  const {
+    equipment,
+    addEquip,
+    generateWorkouts,
+    exercisesAmount,
+    setExercisesAmount
+  } = workoutContext;
 
   return (
     <Segment padded color="blue" style={{ width: "80%"}}>
@@ -30,6 +64,19 @@ const EquipmentForm = () => {
             </Form.Field>
           )
         })}
+        <Form.Field>
+          <Header color="blue">
+            How Many Rounds?
+          </Header>
+        </Form.Field>
+        <Form.Field>
+          <Dropdown
+            fluid
+            selection
+            options={roundOptions}
+            defaultValue={exercisesAmount}
+            onChange={(e, {value}) => setExercisesAmount(value)}/>
+        </Form.Field>
         <Button 
           onClick={generateWorkouts}
           as={Link} 

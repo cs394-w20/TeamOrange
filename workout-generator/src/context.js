@@ -24,6 +24,7 @@ const initialWorkouts = exercises.filter(val => {
 const StateProvider = ( { children }) => {
   const [equipment, setEquipment] = useState(["None"]);
   const [workouts, setWorkouts] = useState(initialWorkouts);
+  const [exercisesAmount, setExercisesAmount] = useState(8);
   const [countdown, setCountdown] = useState(0);
 
   const addEquip = value => {
@@ -44,6 +45,8 @@ const StateProvider = ( { children }) => {
     addEquip,
     workouts, 
     generateWorkouts,
+    exercisesAmount,
+    setExercisesAmount,
     countdown,
     setCountdown 
   };

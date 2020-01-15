@@ -6,7 +6,7 @@ import { WorkoutContext } from '../context';
 
 const WorkoutsPage = () => {
   const workoutContext = useContext(WorkoutContext);
-  const { equipment } = workoutContext;
+  const { equipment, exercisesAmount } = workoutContext;
  
   const selectedEquipment =
     (equipment.length === 1 & equipment[0] === "None") ? 
@@ -16,7 +16,7 @@ const WorkoutsPage = () => {
   return (
     <Grid key={'content'} centered style={{ marginTop: "15px" }} >
       <Grid.Row>
-        <WorkoutListHeader selectedEquipment={selectedEquipment} />
+        <WorkoutListHeader selectedEquipment={selectedEquipment} exercisesAmount={exercisesAmount} />
       </Grid.Row>
       <Grid.Row>
         <WorkoutList />
@@ -25,11 +25,13 @@ const WorkoutsPage = () => {
   );
 }
 
-const WorkoutListHeader = ({ selectedEquipment }) => {
+const WorkoutListHeader = ({ selectedEquipment, exercisesAmount }) => {
   return (
     <Segment color="blue" style={{ width: "80%", textAlign: "left"}}>
       <Header dividing as="h3">
         <Header textAlign="center" dividing content="CUSTOM WORKOUT" color="blue" />
+        <Header.Subheader content="Selected Round Count:" />
+        {`${exercisesAmount} Total Exercises`}
         <Header.Subheader content="Selected Workout Equipment:" />
         {selectedEquipment}
       </Header>
