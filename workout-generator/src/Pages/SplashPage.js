@@ -1,18 +1,15 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
-import HIITheader from '../Components/LogoHeader';
+import HIITheader from '../Components/TopMenu';
 import EquipmentForm from '../Components/EquipmentForm';
 
 const SplashPage = () => {
   return (
-    <React.Fragment>
-      <HIITheader />
-      <Grid centered style={{ marginTop: "35px" }}>
-        <Grid.Row>
-          <EquipmentForm />
-        </Grid.Row>
-      </Grid>
-    </React.Fragment>
+    <Grid centered style={{ marginTop: "15px" }}>
+      <Grid.Row>
+        <EquipmentForm />
+      </Grid.Row>
+    </Grid>
   );
 }
 

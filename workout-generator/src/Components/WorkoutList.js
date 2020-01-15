@@ -1,22 +1,9 @@
 import React, { useContext } from 'react';
-import { Card, Embed } from 'semantic-ui-react';
+import { Card, Embed, Button } from 'semantic-ui-react';
 import { WorkoutContext } from '../context';
 import { MAX_EXERCISES } from '../constants';
 import { shuffleList } from '../utilities';
 
-const Workout = ({ exercise }) => (
-  <Card color="blue">
-    <Card.Content>
-      <Card.Header>{exercise.Title}</Card.Header>
-      <Card.Meta>Duration: {exercise.Duration} seconds</Card.Meta>
-      <Card.Description>Equipment: {exercise.Equipment}</Card.Description>
-      <Card.Content extra style={{ maxWidth: "400px", maxHeight: "300px" }}>
-        <p>Tutorial: </p>
-        <Embed url={exercise.tutorial} />
-      </Card.Content>
-    </Card.Content>
-  </Card>
-);
 
 const WorkoutList = () => {
   const workoutContext = useContext(WorkoutContext)
@@ -30,5 +17,32 @@ const WorkoutList = () => {
     </Card.Group>
   )
 }
+
+const Workout = ({ exercise }) => (
+  <Card color="blue">
+    <Card.Content>
+      <Card.Header>{exercise.Title}</Card.Header>
+      <Card.Meta>Duration: {exercise.Duration} seconds</Card.Meta>
+      <Card.Description>Equipment: {exercise.Equipment}</Card.Description>
+      <Card.Content extra style={{ maxWidth: "400px", maxHeight: "300px" }}>
+        <p>Tutorial: </p>
+        <Embed url={exercise.tutorial} />
+      </Card.Content>
+    </Card.Content>
+    <Card.Content extra>
+      <div className='ui two buttons'>
+      <Button 
+        color='green' 
+        content="START TIMER"
+      />
+      <Button 
+        basic 
+        color='blue' 
+        content="SAVE TO FAVORITES"
+      />
+      </div>
+    </Card.Content>
+  </Card>
+);
 
 export default WorkoutList

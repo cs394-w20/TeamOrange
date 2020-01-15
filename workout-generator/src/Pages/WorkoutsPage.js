@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import { Grid, Header, Button, Segment, Divider } from 'semantic-ui-react';
-import HIITheader from '../Components/LogoHeader';
+import HIITheader from '../Components/TopMenu';
 import WorkoutList from '../Components/WorkoutList';
 import { Link } from 'react-router-dom';
 import { WorkoutContext } from '../context';
@@ -14,9 +14,8 @@ const WorkoutsPage = () => {
     "No Equipment" : 
     equipment.join(", ") 
 
-  return ([
-    <HIITheader key={'header'} />,
-    <Grid key={'content'} centered style={{ marginTop: "35px" }} >
+  return (
+    <Grid key={'content'} centered style={{ marginTop: "15px" }} >
       <Grid.Row>
         <WorkoutListHeader selectedEquipment={selectedEquipment} />
       </Grid.Row>
@@ -24,7 +23,7 @@ const WorkoutsPage = () => {
         <WorkoutList />
       </Grid.Row>
     </Grid>
-  ]);
+  );
 }
 
 const WorkoutListHeader = ({ selectedEquipment }) => {
