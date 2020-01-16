@@ -55,7 +55,7 @@ const generateMinutes = () => {
 
 const generateSeconds = () => {
   let seconds = [];
-  for (let i = 0; i < 11; i++) {
+  for (let i = 0; i < 60; i=i+5) {
     seconds.push({ value: i*1000, text: i, key: i })
   };
   return seconds;
