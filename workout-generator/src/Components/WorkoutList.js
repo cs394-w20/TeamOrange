@@ -7,7 +7,7 @@ import { shuffleList } from '../utilities';
 
 const WorkoutList = () => {
   const workoutContext = useContext(WorkoutContext)
-  const { workouts, setCountdown, exercisesAmount } = workoutContext;
+  const { workouts, setCountdown, exercisesAmount, favworkouts, toggleFavs, setFavworkouts } = workoutContext;
 
   const workoutList = shuffleList(workouts.slice(0, exercisesAmount))
 
@@ -18,7 +18,11 @@ const WorkoutList = () => {
           <Workout 
             exercise={exercise} 
             key={exercise.Title}
-            setCountdown={() => setCountdown(parseInt(exercise.Duration) * 1000)} 
+            setCountdown={() => setCountdown(parseInt(exercise.Duration) * 1000)}
+            favworkouts={favworkouts}
+            toggleFavs={toggleFavs}
+            setFavworkouts={setFavworkouts}
+         
           />
         )}
       )}
@@ -26,7 +30,7 @@ const WorkoutList = () => {
   )
 }
 
-const Workout = ({ exercise, setCountdown }) => (
+const Workout = ({ exercise, setCountdown, favworkouts, toggleFavs, setFavworkouts }) => (
   <Card color="blue">
     <Card.Content>
       <Card.Header>{exercise.Title}</Card.Header>
@@ -53,6 +57,7 @@ const Workout = ({ exercise, setCountdown }) => (
         color='blue' 
         content="SAVE TO FAVORITES"
         attached="bottom"
+        onClick = {setFavworkouts(toggleFavs(favworkouts))}
       />
     </Card.Content>
   </Card>
