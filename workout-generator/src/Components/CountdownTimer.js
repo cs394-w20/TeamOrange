@@ -27,7 +27,7 @@ const CancelButton = ({getTimerState, stop}) => {
 
   return (
     <Button
-      disabled={status === "STOPPED" | status === "INITED"}
+      disabled={status === "STOPPED"}
       floated="left"
       negative
       onClick={stop}
