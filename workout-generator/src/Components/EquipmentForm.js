@@ -65,8 +65,11 @@ const EquipmentForm = () => {
           )
         })}
         <Form.Field>
-          <Header color="blue">
+          <Header dividing color="blue">
             How Many Rounds?
+            <Header.Subheader>
+              Specify how many different exercises you would like to perform.
+            </Header.Subheader>
           </Header>
         </Form.Field>
         <Form.Field>
