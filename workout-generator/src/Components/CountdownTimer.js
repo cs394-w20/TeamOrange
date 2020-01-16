@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { Header, Segment, Button, Dropdown, Grid, Form } from 'semantic-ui-react';
+import React, { useContext } from 'react';
+import { Header, Segment, Button, Grid, Form } from 'semantic-ui-react';
 import { WorkoutContext } from '../context';
 import { MINUTES, SECONDS } from '../constants';
 import Timer from 'react-compound-timer';
