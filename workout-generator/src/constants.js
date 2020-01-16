@@ -44,3 +44,22 @@ export const EQUIPMENT_LIST = [
     title: "None"
   }
 ];
+
+const generateMinutes = () => {
+  let minutes = [];
+  for (let i = 0; i < 11; i++) {
+    minutes.push({ value: i*60000, text: i, key: i })
+  };
+  return minutes;
+}
+
+const generateSeconds = () => {
+  let seconds = [];
+  for (let i = 0; i < 11; i++) {
+    seconds.push({ value: i*1000, text: i, key: i })
+  };
+  return seconds;
+}
+
+export const MINUTES = generateMinutes();
+export const SECONDS = generateSeconds();
