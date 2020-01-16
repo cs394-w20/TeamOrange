@@ -16,7 +16,7 @@ const SavedWorkoutsPage = () => {
             exercise={exercise} 
             key={exercise.Title}    
             setCountdown={setCountdown}     
-            toggler={toggleFavs}
+            toggleFavs={toggleFavs}
           />
         )}
       )}
