@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react';
 import { firebaseDb } from './firebaseDb';
 import * as data from './wkouts.json';
+import { shuffleList } from './utilities';
 
 const { Exercises } = data;
 
@@ -17,15 +18,17 @@ const exercises = Object.values(Exercises);
 const WorkoutContext = createContext(null);
 const { Provider } = WorkoutContext; 
 
-const initialWorkouts = exercises.filter(val => {
+const initialWorkouts = shuffleList(exercises.filter(val => {
   return val.Equipment === "None"
-})
+})).slice(0, 8)
 
 const StateProvider = ( { children }) => {
   const [equipment, setEquipment] = useState(["None"]);
   const [workouts, setWorkouts] = useState(initialWorkouts);
+  const [favworkouts, setFavworkouts] = useState([]);
   const [exercisesAmount, setExercisesAmount] = useState(8);
   const [countdown, setCountdown] = useState(0);
+
 
   const addEquip = value => {
     equipment.includes(value) ? 
@@ -33,11 +36,21 @@ const StateProvider = ( { children }) => {
     setEquipment([...equipment, value])
   }
 
+  const toggleFavs = value => 
+  {
+    favworkouts.map(val=>val.Title).includes(value.Title) ?
+    setFavworkouts(favworkouts.filter(x=>x.Title!== value.Title)) :
+    setFavworkouts([...favworkouts, value])
+    console.log("this is favorites")
+    console.log(favworkouts)
+    
+  }
+
   const generateWorkouts = () => {
     const values = exercises.filter(val => {
       return equipment.includes(val.Equipment);
     })
-    setWorkouts(values)
+    setWorkouts(shuffleList(values).slice(0, exercisesAmount))
   }
 
   const api = {
@@ -48,7 +61,9 @@ const StateProvider = ( { children }) => {
     exercisesAmount,
     setExercisesAmount,
     countdown,
-    setCountdown 
+    setCountdown,
+    favworkouts,
+    toggleFavs
   };
 
   return <Provider value={api}>{children}</Provider>;

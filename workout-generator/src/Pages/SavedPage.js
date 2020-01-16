@@ -1,10 +1,14 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
+import SavedList from '../Components/SavedList';
 
-const SavedWorkoutsPage = () => {
+
+const SavedPage = () => {
   return (
-    <Header content="Saved Workouts" />
-  )
-}
+    <Grid centered style={{ marginTop: "20px"}}>
+      <SavedList />
+    </Grid>
+  );
+};
 
-export default SavedWorkoutsPage
+export default SavedPage
