@@ -24,7 +24,7 @@ const initialWorkouts = exercises.filter(val => {
 const StateProvider = ( { children }) => {
   const [equipment, setEquipment] = useState(["None"]);
   const [workouts, setWorkouts] = useState(initialWorkouts);
-  const [favworkouts, setFavworkouts] = useState(["Currently No favorites"]);
+  const [favworkouts, setFavworkouts] = useState([{Title: "None"}]);
   const [exercisesAmount, setExercisesAmount] = useState(8);
   const [countdown, setCountdown] = useState(0);
 
@@ -37,9 +37,10 @@ const StateProvider = ( { children }) => {
 
   const toggleFavs = value => 
   {
-    favworkouts.includes(value) ?
-    setWorkouts(favworkouts.filter(x=>x!== value)) :
-    setWorkouts([...favworkouts, value])
+    favworkouts.map(val=>val.Title).includes(value.Title) ?
+    setFavworkouts(favworkouts.filter(x=>x.Title!== value.Title)) :
+    setFavworkouts([...favworkouts, value])
+    console.log("this is favorites")
     console.log(favworkouts)
     
   }
@@ -61,8 +62,7 @@ const StateProvider = ( { children }) => {
     countdown,
     setCountdown,
     favworkouts,
-    toggleFavs,
-    setFavworkouts
+    toggleFavs
   };
 
   return <Provider value={api}>{children}</Provider>;

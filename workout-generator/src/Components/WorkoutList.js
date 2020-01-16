@@ -57,7 +57,7 @@ const Workout = ({ exercise, setCountdown, favworkouts, toggleFavs, setFavworkou
         color='blue' 
         content="SAVE TO FAVORITES"
         attached="bottom"
-        onClick = {setFavworkouts(toggleFavs(favworkouts))}
+        onClick = {() => toggleFavs(exercise)}
       />
     </Card.Content>
   </Card>
