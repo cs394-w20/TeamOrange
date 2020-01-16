@@ -24,13 +24,14 @@ const StartButton = ({ start, pause, resume, getTimerState, getTime }) => {
   )
 };
 
-const ResetButton = ({getTimerState, stop}) => {
+const ResetButton = ({getTimerState, stop, getTime }) => {
   const status = getTimerState();
+  const time = getTime();
   return (
     <Button
       floated='left'
       circular
-      disabled={status === "STOPPED" | status === "INITED"}
+      disabled={status === "STOPPED" | time === 0}
       negative
       onClick={stop}
       content={"RESET"}
@@ -97,6 +98,7 @@ const CountdownTimer = () => {
                 setCountdown={setCountdown}
                 stop={() => {stop(); setTime(0);}}
                 getTimerState={getTimerState}
+                getTime={getTime}
               />
               <StartButton 
                 getTimerState={getTimerState} 
