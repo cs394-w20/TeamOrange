@@ -41,7 +41,7 @@ export const EQUIPMENT_LIST = [
   },
   {
     id: "11",
-    title: "None"
+    title: "Bodyweight"
   }
 ];
 
