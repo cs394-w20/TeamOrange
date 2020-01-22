@@ -43,24 +43,30 @@ const EquipmentForm = () => {
   } = workoutContext;
 
   return (
-    <Segment padded color="blue" style={{ width: "80%"}}>
+    <Segment padded color="blue" style={{ width: "80%" }}>
       <Form size="large">
         <Form.Field>
           <Header color="blue" dividing>
             What Equipment Do You Have?
             <Header.Subheader>
-              Selecting more than one option will give you different workouts for different equipments. 
+              Selecting more than one option will give you different workouts for different equipments.
             </Header.Subheader>
           </Header>
         </Form.Field>
         {EQUIPMENT_LIST.map(item => {
+          const name = (str) => {
+            if (str === "None") {
+              return "Bodyweight";
+            }
+            else { return str; }
+          }
           return (
-            <Form.Field key={item.id} style={{ textAlign: "left"}}>
-              <Checkbox 
-                label={item.title} 
-                value={item.title} 
+            <Form.Field key={item.id} style={{ textAlign: "left" }}>
+              <Checkbox
+                label={name(item.title)}
+                value={item.title}
                 checked={equipment.includes(item.title)}
-                onChange={(e, {value}) => addEquip(value)}/>
+                onChange={(e, { value }) => addEquip(value)} />
             </Form.Field>
           )
         })}
@@ -78,12 +84,12 @@ const EquipmentForm = () => {
             selection
             options={roundOptions}
             defaultValue={exercisesAmount}
-            onChange={(e, {value}) => setExercisesAmount(value)}/>
+            onChange={(e, { value }) => setExercisesAmount(value)} />
         </Form.Field>
-        <Button 
+        <Button
           onClick={generateWorkouts}
-          as={Link} 
-          to='/workouts' 
+          as={Link}
+          to='/workouts'
           primary
         >
           Find Workouts!
