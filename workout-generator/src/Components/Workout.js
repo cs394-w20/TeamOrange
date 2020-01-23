@@ -2,7 +2,9 @@ import React from 'react';
 import { Card, Embed, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts }) =>{ 
+const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts , replaceWorkout, refresh}) =>{ 
+
+    console.log(exercise.Title);
   return(
   <Card color="blue">
     <Card.Content>
@@ -29,6 +31,7 @@ const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts }) =>{
         fluid
         icon='forward'
         content="REPLACE"
+        onClick={() => { replaceWorkout(exercise); refresh(); }}
       />
       <Button
         fluid
