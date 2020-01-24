@@ -12,7 +12,7 @@ const WorkoutsPage = () => {
     (equipment.length === 1 & equipment[0] === "None") ? 
     "Bodyweight" : 
     equipment.join(", ").replace("None,", "Bodyweight,")
-  console.log(equipment);
+  
   return (
     <Grid key={'content'} centered style={{ marginTop: "15px" }} >
       <Grid.Row>
