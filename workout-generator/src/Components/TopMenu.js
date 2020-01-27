@@ -10,11 +10,11 @@ const TopMenu = () => {
       pointing  
       color="blue" 
       attached="top" 
-      widths={3}
+      widths={2}
       style={{ backgroundColor: "white"}}
     >
       <Menu.Item 
-        active={location.pathname==="/" | location.pathname==="/workouts"} 
+        active={location.pathname==="/" | location.pathname==="/workouts" }
         as={Link} 
         to="/workouts"
       >
@@ -23,14 +23,6 @@ const TopMenu = () => {
           icon='heartbeat'
           color="blue"
           content="NU HIIT" 
-        />
-      </Menu.Item>
-      <Menu.Item active={location.pathname==="/timer"} as={Link} to="/timer">
-        <Header 
-          as="h5" 
-          color="blue" 
-          content="TIMER" 
-          icon='time'
         />
       </Menu.Item>
       <Menu.Item active={location.pathname==="/saved-workouts"} as={Link} to="/saved-workouts">

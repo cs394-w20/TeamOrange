@@ -3,6 +3,7 @@ import { Header, Segment, Button, Grid, Form } from 'semantic-ui-react';
 import { WorkoutContext } from '../context';
 import { MINUTES, SECONDS } from '../constants';
 import Timer from 'react-compound-timer';
+import { getNodeText } from '@testing-library/react';
 
 const StartButton = ({ start, pause, resume, getTimerState, getTime }) => {
   const status = getTimerState();

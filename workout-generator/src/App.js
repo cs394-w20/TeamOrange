@@ -7,6 +7,7 @@ import TimerPage from './Pages/TimerPage';
 import SavedWorkoutsPage from './Pages/SavedPage';
 import { WorkoutContext } from './context';
 
+
 const App = () => {
   const workoutContext = useContext(WorkoutContext)
   const { equipment, workouts, countdown } = workoutContext;

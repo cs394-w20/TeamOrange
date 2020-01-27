@@ -29,6 +29,7 @@ const StateProvider = ({ children }) => {
   const [favworkouts, setFavworkouts] = useState([]);
   const [exercisesAmount, setExercisesAmount] = useState(8);
   const [countdown, setCountdown] = useState(0);
+  const [currentWorkoutID, setCurrentWorkoutID] = useState(0);
 
 
   const addEquip = value => {
@@ -79,7 +80,9 @@ const StateProvider = ({ children }) => {
     setCountdown,
     favworkouts,
     toggleFavs,
-    replaceWorkout
+    replaceWorkout,
+    currentWorkoutID,
+    setCurrentWorkoutID
   };
 
   return <Provider value={api}>{children}</Provider>;

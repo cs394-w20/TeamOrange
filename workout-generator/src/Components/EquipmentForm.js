@@ -92,7 +92,7 @@ const EquipmentForm = () => {
           to='/workouts'
           primary
         >
-          Find Workouts!
+          GENERATE WORKOUT
         </Button>
       </Form>
     </Segment>
