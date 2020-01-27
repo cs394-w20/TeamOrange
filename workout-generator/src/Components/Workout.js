@@ -18,22 +18,15 @@ const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts , replaceWork
     </Card.Content>
     <Card.Content extra>
       <Button
-        as={Link}
-        to="/timer"
-        fluid
-        onClick={setCountdown}
-        color='green'
-        icon='time'
-        content="TIMER"
-      />
-      <Button
         color='blue'
+        attached='top'
         fluid
-        icon='forward'
+        icon='exchange'
         content="REPLACE"
         onClick={() => { replaceWorkout(exercise); refresh(); }}
       />
       <Button
+        attached='bottom'
         fluid
         icon={favworkouts.includes(exercise) ? "minus" : "plus"}
         basic

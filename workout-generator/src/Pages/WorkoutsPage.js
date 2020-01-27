@@ -1,48 +1,71 @@
-import React, {useContext} from 'react';
+import React, { useContext, useState } from 'react';
 import { Grid, Header, Button, Segment } from 'semantic-ui-react';
 import WorkoutList from '../Components/WorkoutList';
+import ActiveWorkoutTimer from '../Components/ActiveWorkoutTimer';
 import { Link } from 'react-router-dom';
 import { WorkoutContext } from '../context';
 
 const WorkoutsPage = () => {
   const workoutContext = useContext(WorkoutContext);
   const { equipment, exercisesAmount } = workoutContext;
+
+  const [ workingOut, setWorkingOut ] = useState(false);
  
   const selectedEquipment =
     (equipment.length === 1 & equipment[0] === "None") ? 
     "Bodyweight" : 
     equipment.join(", ").replace("None,", "Bodyweight,")
-  
+
+ 
   return (
+    !workingOut ? 
     <Grid key={'content'} centered style={{ marginTop: "15px" }} >
       <Grid.Row>
-        <WorkoutListHeader selectedEquipment={selectedEquipment} exercisesAmount={exercisesAmount} />
+        <WorkoutListHeader 
+          selectedEquipment={selectedEquipment} 
+          exercisesAmount={exercisesAmount} 
+          setWorkingOut={() => setWorkingOut(true)}
+        />
       </Grid.Row>
       <Grid.Row>
         <WorkoutList />
       </Grid.Row>
     </Grid>
+    :
+    <ActiveWorkoutTimer cancel={() => setWorkingOut(!workingOut)} />
   );
 }
 
-const WorkoutListHeader = ({ selectedEquipment, exercisesAmount }) => {
+const WorkoutListHeader = ({ selectedEquipment, exercisesAmount, setWorkingOut }) => {
   return (
     <Segment color="blue" style={{ width: "80%", textAlign: "left"}}>
       <Header dividing as="h3">
-        <Header textAlign="center" dividing content="CUSTOM WORKOUT" color="blue" />
+        <Header textAlign="center" dividing color="blue">
+          PREVIEW WORKOUT
+          <Header.Subheader content="Watch tutorials, save workouts for later, and/or swap out workouts you don't like." />
+        </Header>
         <Header.Subheader content="Selected Round Count:" />
         {`${exercisesAmount} Total Exercises`}
         <Header.Subheader content="Selected Workout Equipment:" />
         {selectedEquipment}
       </Header>
-      <Button 
-        compact
-        fluid 
-        as={Link} 
-        to="/"
-        primary
-        content="Back to Equipment"
-      />
+      <Button.Group size='small'>
+        <Button 
+          attached='left'
+          as={Link} 
+          primary
+          to="/"
+          icon='arrow left'
+          content="Back to Options"
+        />
+        <Button
+          attached='right'
+          color="green"
+          icon='play'
+          content="BEGIN WORKOUT"
+          onClick={setWorkingOut}
+        />
+      </Button.Group>
     </Segment>
   )
 }
