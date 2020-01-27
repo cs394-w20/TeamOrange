@@ -13,7 +13,7 @@ const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts , replaceWork
       <Card.Description>Equipment: {exercise.Equipment}</Card.Description>
       <Card.Content extra style={{ maxWidth: "400px", maxHeight: "300px" }}>
         <p>Tutorial: </p>
-        <Embed id={exercise.Tutorial} source='youtube' />
+        <Embed active id={exercise.Tutorial} source='youtube' />
       </Card.Content>
     </Card.Content>
     <Card.Content extra>
