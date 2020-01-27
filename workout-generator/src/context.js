@@ -49,6 +49,7 @@ const StateProvider = ({ children }) => {
       return equipment.includes(val.Equipment);
     })
 
+    setCurrentWorkoutID(0);
     let substr = shuffleList(values);
     console.log(substr);
     setWorkouts(substr.slice(0, exercisesAmount));
