@@ -95,7 +95,6 @@ class WorkoutQueue extends React.Component {
         setCurrentWorkoutID(currentWorkoutID + 1);
       }
       else {
-        setCurrentWorkoutID(0);
         this.setState({ endWorkout: true })
       }
     };
