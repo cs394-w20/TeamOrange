@@ -90,7 +90,7 @@ class WorkoutQueue extends React.Component {
     const { setCheckpoints, setTime  } = this.props.timer;
 
     const next = () => {
-      if (currentWorkoutID < workouts.length) {
+      if (currentWorkoutID < workouts.length - 1) {
         setTime(workouts[currentWorkoutID + 1].Duration);
         setCurrentWorkoutID(currentWorkoutID + 1);
       }
