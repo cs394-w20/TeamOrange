@@ -7,7 +7,7 @@ import { WorkoutContext } from '../context';
 
 const WorkoutsPage = () => {
   const workoutContext = useContext(WorkoutContext);
-  const { equipment, exercisesAmount } = workoutContext;
+  const { equipment, exercisesAmount, generateDisplayList } = workoutContext;
 
   const [ workingOut, setWorkingOut ] = useState(false);
  
@@ -24,7 +24,10 @@ const WorkoutsPage = () => {
         <WorkoutListHeader 
           selectedEquipment={selectedEquipment} 
           exercisesAmount={exercisesAmount} 
-          setWorkingOut={() => setWorkingOut(true)}
+          setWorkingOut={() => {
+            generateDisplayList();
+            console.log("hello");
+            setWorkingOut(true)}}
         />
       </Grid.Row>
       <Grid.Row>
