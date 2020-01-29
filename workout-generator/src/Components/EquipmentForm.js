@@ -88,6 +88,7 @@ const EquipmentForm = () => {
         </Form.Field>
         <Button
           onClick={generateWorkouts}
+          size="large"
           as={Link}
           to='/workouts'
           primary

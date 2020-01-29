@@ -40,10 +40,10 @@ const WorkoutsPage = () => {
 
 const WorkoutListHeader = ({ selectedEquipment, exercisesAmount, setWorkingOut }) => {
   return (
-    <Segment color="blue" style={{ width: "80%", textAlign: "left"}}>
+    <Segment color="blue" style={{ width: "80%", textAlign: "left" }}>
       <Header dividing as="h3">
         <Header textAlign="center" dividing color="blue">
-          PREVIEW WORKOUT
+          Preview Workout
           <Header.Subheader content="Watch tutorials, save workouts for later, and/or swap out workouts you don't like." />
         </Header>
         <Header.Subheader content="Selected Round Count:" />
@@ -51,25 +51,29 @@ const WorkoutListHeader = ({ selectedEquipment, exercisesAmount, setWorkingOut }
         <Header.Subheader content="Selected Workout Equipment:" />
         {selectedEquipment}
       </Header>
-      <Button.Group size='small'>
-        <Button 
-          attached='left'
-          as={Link} 
-          primary
-          to="/"
-          icon='arrow left'
-          content="Back to Options"
-        />
-        <Button
-          attached='right'
-          color="green"
-          icon='play'
-          content="BEGIN WORKOUT"
-          onClick={setWorkingOut}
-        />
-      </Button.Group>
+      <Grid>
+        <Grid.Column textAlign="center">
+          <Button.Group size="large">
+            <Button
+              attached="left"
+              as={Link}
+              primary
+              to="/"
+              icon="arrow left"
+              content="Back to Selection"
+            />
+            <Button
+              attached="right"
+              color="green"
+              icon="play"
+              content="Begin Workout"
+              onClick={setWorkingOut}
+            />
+          </Button.Group>
+        </Grid.Column>
+      </Grid>
     </Segment>
-  )
+  );
 }
 
 export default WorkoutsPage
