@@ -6,7 +6,7 @@ import Timer from "react-compound-timer";
 
 const ActiveWorkoutTimer = ({ cancel }) => {
   const workoutContext = useContext(WorkoutContext);
-  const { workouts, currentWorkoutID } = workoutContext;
+  const {displayList: workouts, currentWorkoutID } = workoutContext;
 
   const withTimer = timerProps => WrappedComponent => wrappedComponentProps => (
     <Timer {...timerProps}>
@@ -87,7 +87,7 @@ class WorkoutQueue extends React.Component {
   };
 
   componentDidMount(){
-    const { setCurrentWorkoutID, workouts, currentWorkoutID } = this.props.workout;
+    const { setCurrentWorkoutID, displayList: workouts, currentWorkoutID } = this.props.workout;
     const { setCheckpoints, setTime  } = this.props.timer;
 
     const next = () => {
@@ -111,7 +111,7 @@ class WorkoutQueue extends React.Component {
   render() {
     const { cancel } = this.props;
     const { endWorkout } = this.state;
-    const { workouts, currentWorkoutID, setCurrentWorkoutID } = this.props.workout;
+    const { displayList: workouts, currentWorkoutID, setCurrentWorkoutID } = this.props.workout;
     const { getTime, getTimerState, start, resume, pause, reset, setTime  } = this.props.timer;
     
     const next = () => {

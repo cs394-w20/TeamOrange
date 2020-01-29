@@ -448,6 +448,14 @@
       "Primary Muscle Group": "Chest"
     },
 
+    "Rest": {
+      "Title": "Rest",
+      "Equipment": null,
+      "Duration": 10,
+      "Tutorial": null,
+      "Primary Muscle Group": null
+    },
+
     "Ring Dips": {
       "Title": "Ring Dips",
       "Equipment": "Ring",

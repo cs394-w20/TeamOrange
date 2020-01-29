@@ -30,6 +30,7 @@ const StateProvider = ({ children }) => {
   const [exercisesAmount, setExercisesAmount] = useState(8);
   const [countdown, setCountdown] = useState(0);
   const [currentWorkoutID, setCurrentWorkoutID] = useState(0);
+  const [displayList, setDisplayList] = useState([]);
 
 
   const addEquip = value => {
@@ -58,6 +59,18 @@ const StateProvider = ({ children }) => {
     console.log(substr.slice(exercisesAmount, substr.length))
   }
 
+  const generateDisplayList = () => {
+    let display = []
+    const restItem = exercises.filter(val => val.Title === "Rest")[0]
+    console.log(restItem);
+    
+    for (const workout of workouts) {
+      display.push(workout)
+      display.push(restItem)
+    }
+    setDisplayList(display)
+  }
+
   const replaceWorkout = clickElement => {
     if (replace.length > 0){
       let val = replace;
@@ -83,7 +96,9 @@ const StateProvider = ({ children }) => {
     toggleFavs,
     replaceWorkout,
     currentWorkoutID,
-    setCurrentWorkoutID
+    setCurrentWorkoutID,
+    displayList,
+    generateDisplayList
   };
 
   return <Provider value={api}>{children}</Provider>;
