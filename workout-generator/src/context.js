@@ -61,15 +61,12 @@ const StateProvider = ({ children }) => {
 
   const generateDisplayList = () => {
     let display = []
+    const restItem = exercises.filter(val => val.Title === "Rest")[0]
+    console.log(restItem);
+    
     for (const workout of workouts) {
       display.push(workout)
-      display.push({
-          "Title": "Rest",
-          "Equipment": null,
-          "Duration": 20,
-          "Tutorial": null,
-          "Primary Muscle Group": null
-        })
+      display.push(restItem)
     }
     setDisplayList(display)
   }

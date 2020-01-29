@@ -26,7 +26,6 @@ const WorkoutsPage = () => {
           exercisesAmount={exercisesAmount} 
           setWorkingOut={() => {
             generateDisplayList();
-            console.log("hello");
             setWorkingOut(true)}}
         />
       </Grid.Row>
