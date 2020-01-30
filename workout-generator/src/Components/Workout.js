@@ -10,24 +10,24 @@ const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts , replaceWork
   return (
     <Card color="blue">
       <Card.Content>
-        <Button.Group floated="right">
-          <Button
-            color="blue"
-            basic
-            icon="exchange"
-            content="Swap"
-            onClick={() => {
-              replaceWorkout(exercise);
-              refresh();
-            }}
-          />
-          <Button
-            icon={favworkouts.includes(exercise) ? "heart" : "heart outline"}
-            basic={favworkouts.includes(exercise) ? false : true}
-            color="blue"
-            onClick={() => toggleFavs(exercise)}
-          />
-        </Button.Group>
+        <Button
+          floated="right"
+          icon={favworkouts.includes(exercise) ? "heart" : "heart outline"}
+          basic={favworkouts.includes(exercise) ? false : true}
+          color="blue"
+          onClick={() => toggleFavs(exercise)}
+        />
+        <Button
+          floated="right"
+          color="blue"
+          basic
+          icon="exchange"
+          content="Swap"
+          onClick={() => {
+            replaceWorkout(exercise);
+            refresh();
+          }}
+        />
         <Card.Header>{exercise.Title}</Card.Header>
         <Card.Meta>Duration: {exercise.Duration} seconds</Card.Meta>
         <Card.Meta>Equipment: {exercise.Equipment}</Card.Meta>
@@ -38,7 +38,7 @@ const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts , replaceWork
                 icon={videoHidden ? "close" : "video"}
                 basic={videoHidden ? true : false}
                 color="blue"
-                content={videoHidden ? "Close Tutorial" :"Watch Tutorial"}
+                content={videoHidden ? "Close Tutorial" : "Watch Tutorial"}
                 onClick={() => setVideoHidden(!videoHidden)}
               />
             </Accordion.Title>
