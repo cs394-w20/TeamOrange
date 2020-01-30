@@ -4,6 +4,7 @@ import { useLocation, Link } from 'react-router-dom';
 
 const TopMenu = () => {
   const location = useLocation()
+  
 
   return (
     <Menu 
@@ -14,7 +15,7 @@ const TopMenu = () => {
       style={{ backgroundColor: "white"}}
     >
       <Menu.Item 
-        active={location.pathname==="/" | location.pathname==="/workouts" }
+        active={location.pathname==="/" | location.pathname==="/workouts" ? false : true}
         as={Link} 
         to="/workouts"
       >

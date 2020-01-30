@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Embed, Button, Accordion, Icon } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import { Card, Embed, Button, Accordion } from 'semantic-ui-react';
 
 
 const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts , replaceWorkout, refresh}) =>{
@@ -33,7 +32,7 @@ const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts , replaceWork
         <Card.Meta>Equipment: {exercise.Equipment}</Card.Meta>
         <Card.Description>
           <Accordion>
-            <Accordion.Title active={videoHidden} icon="right">
+            <Accordion.Title active={videoHidden}>
               <Button
                 icon={videoHidden ? "close" : "video"}
                 basic={videoHidden ? true : false}
@@ -45,7 +44,6 @@ const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts , replaceWork
             <Accordion.Content active={videoHidden}>
               <Embed
                 active
-                autoplay="false"
                 id={exercise.Tutorial}
                 source="youtube"
                 style={{ maxWidth: "400px", maxHeight: "300px" }}

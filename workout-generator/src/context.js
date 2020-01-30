@@ -1,17 +1,16 @@
 import React, { createContext, useState } from 'react';
-import { firebaseDb } from './firebaseDb';
 import * as data from './wkouts.json';
 import { shuffleList } from './utilities';
 
 const { Exercises } = data;
 
-const grabExercises = async () => {
-  const dataPayload = await firebaseDb.once('value');
+// const grabExercises = async () => {
+//   const dataPayload = await firebaseDb.once('value');
 
-  console.log(dataPayload.val());
+//   console.log(dataPayload.val());
 
-  return dataPayload.exists() ? dataPayload.val() : {};
-};
+//   return dataPayload.exists() ? dataPayload.val() : {};
+// };
 //grabExercises();
 
 const exercises = Object.values(Exercises);
