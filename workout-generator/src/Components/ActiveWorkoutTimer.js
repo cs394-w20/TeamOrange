@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Header, Button, Grid } from "semantic-ui-react";
+import React, { useContext, useState } from "react";
+import { Header, Button, Grid, Confirm } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 import { WorkoutContext } from "../context";
 import Timer from "react-compound-timer";
@@ -78,8 +78,20 @@ const ResetButton = ({ getTimerState, reset, getTime }) => {
 };
 
 const NextButton = ({ next }) => {
-  return <Button icon="forward" circular size="big" onClick={next} />;
-};
+  const [popup, setPopup] = useState(false);
+  return( 
+  <div>
+  <Button icon="forward" circular size="big" onClick={() => setPopup(true)} />
+  <Confirm 
+  open={popup} 
+  content={"Are you sure you want to skip this exercise?"}
+  confirmButton={"Yes"}
+  cancelButton={"No"}
+  onConfirm={next}
+  onCancel = {()=> setPopup(false)}
+  />
+  </div>
+  )};
 
 class WorkoutQueue extends React.Component {
   state={
@@ -115,8 +127,6 @@ class WorkoutQueue extends React.Component {
     const { getTime, getTimerState, start, resume, pause, reset, setTime  } = this.props.timer;
     
     const next = () => {
-      console.log(currentWorkoutID)
-      console.log(workouts.length)
       if (currentWorkoutID < workouts.length - 1) {
         setTime(workouts[currentWorkoutID + 1].Duration);
         setCurrentWorkoutID(currentWorkoutID + 1);
@@ -124,6 +134,7 @@ class WorkoutQueue extends React.Component {
       else {
         this.setState({ endWorkout: true })
       }
+      this.setState({popup: true})
     };
 
     return (
@@ -163,7 +174,7 @@ class WorkoutQueue extends React.Component {
               />
             </Grid.Column>
             <Grid.Column verticalAlign="middle" textAlign="left">
-              <NextButton next={next} />
+              <NextButton next={next}/>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
