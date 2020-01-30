@@ -19,18 +19,18 @@ const TopMenu = () => {
         to="/workouts"
       >
         <Header 
-          as="h5"
-          icon='heartbeat'
+          as="h4"
+          icon='stopwatch'
           color="blue"
-          content="NU HIIT" 
+          content="Workout" 
         />
       </Menu.Item>
       <Menu.Item active={location.pathname==="/saved-workouts"} as={Link} to="/saved-workouts">
         <Header 
-          as="h5" 
+          as="h4" 
           color="blue" 
-          content="SAVED" 
-          icon='download'
+          content="Favorites" 
+          icon='heart'
         />
       </Menu.Item>
     </Menu>

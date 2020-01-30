@@ -1,41 +1,60 @@
-import React from 'react';
-import { Card, Embed, Button } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Card, Embed, Button, Accordion, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts , replaceWorkout, refresh}) =>{ 
 
-    console.log(exercise.Title);
-  return(
-  <Card color="blue">
-    <Card.Content>
-      <Card.Header>{exercise.Title}</Card.Header>
-      <Card.Meta>Duration: {exercise.Duration} seconds</Card.Meta>
-      <Card.Description>Equipment: {exercise.Equipment}</Card.Description>
-      <Card.Content extra style={{ maxWidth: "400px", maxHeight: "300px" }}>
-        <p>Tutorial: </p>
-        <Embed active id={exercise.Tutorial} source='youtube' />
+const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts , replaceWorkout, refresh}) =>{
+  const [videoHidden, setVideoHidden] = useState(false)
+  
+  console.log(exercise.Title);
+  return (
+    <Card color="blue">
+      <Card.Content>
+        <Button
+          floated="right"
+          icon={favworkouts.includes(exercise) ? "heart" : "heart outline"}
+          basic={favworkouts.includes(exercise) ? false : true}
+          color="blue"
+          onClick={() => toggleFavs(exercise)}
+        />
+        <Button
+          floated="right"
+          color="blue"
+          basic
+          icon="exchange"
+          content="Swap"
+          onClick={() => {
+            replaceWorkout(exercise);
+            refresh();
+          }}
+        />
+        <Card.Header>{exercise.Title}</Card.Header>
+        <Card.Meta>Duration: {exercise.Duration} seconds</Card.Meta>
+        <Card.Meta>Equipment: {exercise.Equipment}</Card.Meta>
+        <Card.Description>
+          <Accordion>
+            <Accordion.Title active={videoHidden} icon="right">
+              <Button
+                icon={videoHidden ? "close" : "video"}
+                basic={videoHidden ? true : false}
+                color="blue"
+                content={videoHidden ? "Close Tutorial" : "Watch Tutorial"}
+                onClick={() => setVideoHidden(!videoHidden)}
+              />
+            </Accordion.Title>
+            <Accordion.Content active={videoHidden}>
+              <Embed
+                active
+                autoplay="false"
+                id={exercise.Tutorial}
+                source="youtube"
+                style={{ maxWidth: "400px", maxHeight: "300px" }}
+              />
+            </Accordion.Content>
+          </Accordion>
+        </Card.Description>
       </Card.Content>
-    </Card.Content>
-    <Card.Content extra>
-      <Button
-        color='blue'
-        attached='top'
-        fluid
-        icon='exchange'
-        content="REPLACE"
-        onClick={() => { replaceWorkout(exercise); refresh(); }}
-      />
-      <Button
-        attached='bottom'
-        fluid
-        icon={favworkouts.includes(exercise) ? "minus" : "plus"}
-        basic
-        color='blue'
-        content={favworkouts.includes(exercise) ? "REMOVE FROM FAVORITES" : "SAVE TO FAVORITES"}
-        onClick={() => toggleFavs(exercise)}
-      />
-    </Card.Content>
-  </Card>
-)};
+    </Card>
+  );};
 
 export default Workout
