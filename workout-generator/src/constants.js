@@ -45,6 +45,33 @@ export const EQUIPMENT_LIST = [
   }
 ];
 
+export const MUSCLE_LIST= [
+  {
+    id: "1",
+    title: "Back"
+  },
+  {
+    id: "2",
+    title: "Legs"
+  },
+  {
+    id: "3",
+    title: "Shoulder"
+  },
+  {
+    id: "4",
+    title: "Arms"
+  },
+  {
+    id: "5",
+    title: "Full-Body"
+  },
+  {
+    id: "6",
+    title: "Abs"
+  },  
+];
+
 const generateMinutes = () => {
   let minutes = [];
   for (let i = 0; i < 11; i++) {

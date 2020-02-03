@@ -23,6 +23,7 @@ const initialWorkouts = shuffleList(exercises.filter(val => {
 
 const StateProvider = ({ children }) => {
   const [equipment, setEquipment] = useState(["None"]);
+  const [muscleGroups, setMuscleGroups] = useState(["None"]);
   const [workouts, setWorkouts] = useState(initialWorkouts);
   const [replace, setReplace] = useState([]);
   const [favworkouts, setFavworkouts] = useState([]);
@@ -38,6 +39,12 @@ const StateProvider = ({ children }) => {
       setEquipment([...equipment, value])
   }
 
+  const addMuscleGroup = value => {
+    muscleGroups.includes(value)?
+      setMuscleGroups(muscleGroups.filter(x => x !== value)):
+      setMuscleGroups([...muscleGroups, value])
+
+  }
   const toggleFavs = value => {
     favworkouts.map(val => val.Title).includes(value.Title) ?
       setFavworkouts(favworkouts.filter(x => x.Title !== value.Title)) :
@@ -46,8 +53,14 @@ const StateProvider = ({ children }) => {
 
   const generateWorkouts = () => {
     const values = exercises.filter(val => {
-      return equipment.includes(val.Equipment);
+      // console.log("generateWorkouts called")
+      // console.log(val)
+      return equipment.includes(val.Equipment) && muscleGroups.includes(val["Primary Muscle Group"]);
     })
+
+    // values = values.filter(val => {
+    //   return muscleGroups.includes(val["Primary Muscle Group"])
+    // })
 
     setCurrentWorkoutID(0);
     let substr = shuffleList(values);
@@ -85,6 +98,8 @@ const StateProvider = ({ children }) => {
   const api = {
     equipment,
     addEquip,
+    muscleGroups,
+    addMuscleGroup,
     workouts,
     generateWorkouts,
     exercisesAmount,

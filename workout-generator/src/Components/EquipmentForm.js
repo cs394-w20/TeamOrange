@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Segment, Form, Checkbox, Header, Button, Dropdown } from 'semantic-ui-react';
-import { EQUIPMENT_LIST } from '../constants';
+import { EQUIPMENT_LIST, MUSCLE_LIST } from '../constants';
 import { WorkoutContext } from '../context.js';
 
 const roundOptions = [
@@ -39,7 +39,9 @@ const EquipmentForm = () => {
     addEquip,
     generateWorkouts,
     exercisesAmount,
-    setExercisesAmount
+    setExercisesAmount,
+    muscleGroups,
+    addMuscleGroup
   } = workoutContext;
 
   return (
@@ -85,6 +87,27 @@ const EquipmentForm = () => {
             options={roundOptions}
             defaultValue={exercisesAmount}
             onChange={(e, { value }) => setExercisesAmount(value)} />
+        </Form.Field>
+        <Form.Field>
+          <Header dividing color="blue">
+            What Muscle Groups?
+            <Header.Subheader>
+              Specify what types of exercise you would like to perform.
+            </Header.Subheader>
+          </Header>
+        </Form.Field>
+        <Form.Field>
+        {MUSCLE_LIST.map(item => {
+          return (
+            <Form.Field key={item.id} style={{ textAlign: "left" }}>
+              <Checkbox
+                label={item.title}
+                value={item.title}
+                checked={muscleGroups.includes(item.title)}
+                onChange={(e, { value }) => addMuscleGroup(value)} />
+            </Form.Field>
+          )
+        })}
         </Form.Field>
         <Button
           onClick={generateWorkouts}

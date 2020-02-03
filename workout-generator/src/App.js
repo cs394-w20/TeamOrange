@@ -10,9 +10,10 @@ import { WorkoutContext } from './context';
 
 const App = () => {
   const workoutContext = useContext(WorkoutContext)
-  const { equipment, workouts, countdown } = workoutContext;
+  const { equipment, workouts, countdown, muscleGroups } = workoutContext;
   console.log('duration', countdown)
   console.log('equip', equipment)
+  console.log('muscle groups', muscleGroups)
   console.log('workout list', workouts)
 
   const withMenu = (page) => {
