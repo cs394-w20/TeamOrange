@@ -3,7 +3,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import SplashPage from './Pages/SplashPage';
 import WorkoutsPage from './Pages/WorkoutsPage';
 import TopMenu from './Components/TopMenu';
-import TimerPage from './Pages/TimerPage';
 import SavedWorkoutsPage from './Pages/SavedPage';
 import { WorkoutContext } from './context';
 
@@ -35,10 +34,6 @@ const App = () => {
       <Route
         path='/workouts'
         render={() => withMenu(<WorkoutsPage />)}
-      />
-      <Route
-        path='/timer'
-        render={() => withMenu(<TimerPage />)}
       />
       <Route
         path='/saved-workouts'

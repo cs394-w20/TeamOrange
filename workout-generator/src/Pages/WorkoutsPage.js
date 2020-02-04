@@ -53,7 +53,7 @@ const WorkoutListHeader = ({ selectedEquipment, exercisesAmount, setWorkingOut }
       </Header>
       <Grid>
         <Grid.Column textAlign="center">
-          <Button.Group size="large">
+          <Button.Group size="small">
             <Button
               attached="left"
               as={Link}

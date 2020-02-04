@@ -15,7 +15,7 @@ const TopMenu = () => {
       style={{ backgroundColor: "white"}}
     >
       <Menu.Item 
-        active={location.pathname==="/" | location.pathname==="/workouts" ? false : true}
+        active={location.pathname==="/" | location.pathname==="/workouts"}
         as={Link} 
         to="/workouts"
       >
