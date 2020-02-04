@@ -25,7 +25,7 @@ const ActiveWorkoutTimer = ({ cancel }) => {
     formatValue: x => `${x < 10 ? `0${x}` : x}`,
     direction: "backward",
     timeToUpdate: 100,
-    startImmediately: false,
+    startImmediately: true,
     initialTime: workouts[currentWorkoutID].Duration * 1000
   })(WorkoutQueue);
 
