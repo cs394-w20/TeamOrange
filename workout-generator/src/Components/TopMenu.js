@@ -10,7 +10,7 @@ const TopMenu = () => {
     <Menu 
       pointing  
       color="blue" 
-      attached="top" 
+      fixed="top" 
       widths={2}
       style={{ backgroundColor: "white"}}
     >
