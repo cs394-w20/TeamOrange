@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
 import SplashPage from './Pages/SplashPage';
 import WorkoutsPage from './Pages/WorkoutsPage';
 import TopMenu from './Components/TopMenu';
@@ -17,10 +18,10 @@ const App = () => {
 
   const withMenu = (page) => {
     return (
-      <React.Fragment>
+      <Container>
         <TopMenu/>
         {page}
-      </React.Fragment>
+      </Container>
     )
   };
 
