@@ -64,13 +64,13 @@ const EquipmentForm = () => {
             else { return str; }
           }
           return (
-            <Form.Field key={item.id} style={{ textAlign: "left" }}>
+            <Form.Field key={item.id} style={{ textAlign: "left", marginBottom: "calc(1em - 13.84px)" }}>
               <Checkbox
                 label={name(item.title)}
                 value={item.title}
                 checked={equipment.includes(item.title)}
                 onChange={(e, { value }) => addEquip(value)} />
-              <EquipWindow name={name(item.title)} description={item.description} />
+              <EquipWindow name={name(item.title)} description={item.description} url={item.url} />
             </Form.Field>
           )
         })}
