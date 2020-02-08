@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Segment, Form, Checkbox, Header, Button, Dropdown } from 'semantic-ui-react';
 import { EQUIPMENT_LIST, MUSCLE_LIST } from '../constants';
 import { WorkoutContext } from '../context.js';
+import EquipWindow from './EquipWindow';
 
 const roundOptions = [
   {
@@ -69,6 +70,7 @@ const EquipmentForm = () => {
                 value={item.title}
                 checked={equipment.includes(item.title)}
                 onChange={(e, { value }) => addEquip(value)} />
+              <EquipWindow name={name(item.title)} description={item.description} />
             </Form.Field>
           )
         })}

@@ -1,47 +1,58 @@
 export const EQUIPMENT_LIST = [
   {
     id: "1",
-    title: "Jump Rope"
+    title: "Jump Rope",
+    description: "add desc here!"
   },
   {
     id: "2",
-    title: "Power Ball"
+    title: "Power Ball",
+    description: "add desc here!"
   },
   {
     id: "3",
-    title: "Dumbbells"
+    title: "Dumbbells",
+    description: "add desc here!"
   },
   {
     id: "4",
-    title: "Barbell / Plates"
+    title: "Barbell / Plates",
+    description: "add desc here!"
   },
   {
     id: "5",
-    title: "Pull-Up Bar"
+    title: "Pull-Up Bar",
+    description: "add desc here!"
   },
   {
     id: "6",
-    title: "Kettlebell"
+    title: "Kettlebell",
+    description: "add desc here!"
   },
   {
     id: "7",
-    title: "Jumping Box"
+    title: "Jumping Box",
+    description: "add desc here!"
   },
   {
     id: "8",
-    title: "Rings"
+    title: "Rings",
+    description: "add desc here!"
   },
   {
     id: "9",
-    title: "Resistance Band"
+    title: "Resistance Band",
+    description: "add desc here!"
   },
   {
     id: "10",
-    title: "Sandbag"
+    title: "Sandbag",
+    description: "add desc here!"
   },
   {
     id: "11",
-    title: "None"
+    title: "None",
+    description: "add desc here!"
   }
 ];
 
