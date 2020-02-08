@@ -4,7 +4,7 @@ import { Checkbox, Header, Image, Modal } from "semantic-ui-react";
 const useStateWithLocalStorage = localStorageKey => {
   const storageValue = localStorage.getItem(localStorageKey);
   const [showInfo, setshowInfo] = useState(
-    storageValue !== undefined ? storageValue === "true" : true
+    storageValue !== null ? storageValue === "true" : true
   );
 
   useEffect(() => {
