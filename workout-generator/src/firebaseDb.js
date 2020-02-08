@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
+  apiKey: "AIzaSyDfmgY9F8ms-PTeDATk0GKOQtA63VueGwc",
   authDomain: "nu-hiit.firebaseapp.com",
   databaseURL: "https://nu-hiit.firebaseio.com",
   projectId: "nu-hiit",
@@ -13,5 +13,6 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+const firebaseDb = firebase.database().ref()
 
-export const firebaseDb = firebase.database().ref();
+export { firebaseDb , firebase};

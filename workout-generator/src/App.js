@@ -8,7 +8,10 @@ import SavedWorkoutsPage from './Pages/SavedPage';
 import { WorkoutContext } from './context';
 
 
+
 const App = () => {
+  
+
   const workoutContext = useContext(WorkoutContext)
   const { equipment, workouts, countdown, muscleGroups } = workoutContext;
   console.log('duration', countdown)
@@ -20,6 +23,7 @@ const App = () => {
     return (
       <Container>
         <TopMenu/>
+        
         {page}
       </Container>
     )
