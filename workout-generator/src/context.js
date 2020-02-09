@@ -34,6 +34,7 @@ const StateProvider = ({ children }) => {
   const [displayList, setDisplayList] = useState([]);
 
   const update = () => {
+    
     if (equipment.length > 0 && muscleGroups.length > 1) {
       setPossible(true);
     }
