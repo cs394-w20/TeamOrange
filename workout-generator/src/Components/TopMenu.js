@@ -1,12 +1,12 @@
 import React from 'react';
 import { Header, Menu, GridColumn } from 'semantic-ui-react';
 import { useLocation, Link } from 'react-router-dom';
-import {useState, useEffect} from 'react';
-import {firebaseref, firebase }from '../firebaseDb';
-import 'firebase/database';	
+import { useState, useEffect } from 'react';
+import { firebaseref, firebase } from '../firebaseDb';
+import 'firebase/database';
 import "firebase/auth";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import {Grid, Box, Button} from '@material-ui/core'
+import { Grid, Box, Button } from '@material-ui/core'
 
 
 
@@ -20,7 +20,7 @@ const TopMenu = () => {
   }, []);
   const Banner = ({ user }) => (
     <div>
-      { user ? <Welcome user={ user } /> : <SignIn /> }
+      {user ? <Welcome user={user} /> : <SignIn />}
     </div>
   );
 
@@ -43,68 +43,62 @@ const TopMenu = () => {
   );
   const Welcome = ({ user }) => (
     <Grid container spacing={8} alignContent='stretch'>
-    <Grid item xs={5}>
-      <Box marginTop={1} textAlign="center" alignContent="center">
-
-          Welcome, {user.displayName}
-      </Box>
+      <Grid item xs={6}>
+        <Box marginTop={1}>
+          <Button color="primary" variant="contained" size="small " aria-label="small outlined" align="center" onClick={() => firebase.auth().signOut()}>
+            Log out
+          </Button>
+        </Box>
+      </Grid>
     </Grid>
-    <Grid item xs={5}>
-
-      <Box marginTop={1}>
-            <Button color="primary" variant="contained" size="small " aria-label="small outlined" align="center" onClick={() => firebase.auth().signOut()}>
-                Log out
-            </Button>
-        
-      </Box>
-    </Grid>
-    </Grid> 
   );
 
   const location = useLocation();
-  
+
 
   return (
-    
 
-    
-    <Menu 
-      pointing  
-      color="blue" 
-      fixed="top" 
-      widths={3}
-      style={{ backgroundColor: "white"}}
-    >
-      <Menu.Item 
-        active={location.pathname==="/" | location.pathname==="/workouts"}
-        as={Link} 
-        to="/workouts"
+
+    <div>
+      <Menu
+        pointing
+        color="blue"
+        fixed="top"
+        widths={3}
+        style={{ backgroundColor: "white" }}
       >
-        <Header 
-          as="h4"
-          icon='stopwatch'
-          color="blue"
-          content="Workout" 
-        />
-      </Menu.Item>
-      <Menu.Item active={location.pathname==="/saved-workouts"} as={Link} to="/saved-workouts">
-        <Header 
-          as="h4" 
-          color="blue" 
-          content="Favorites" 
-          icon='heart'
-        />
-      </Menu.Item>
-      <Menu.Item>
-      <Banner user={user}>
+        <Menu.Item
+          active={location.pathname === "/" | location.pathname === "/workouts"}
+          as={Link}
+          to="/workouts"
+        >
+          <Header
+            as="h4"
+            icon='stopwatch'
+            color="blue"
+            content="Workout"
+          />
+        </Menu.Item>
+        <Menu.Item active={location.pathname === "/saved-workouts"} as={Link} to="/saved-workouts">
+          <Header
+            as="h4"
+            color="blue"
+            content="Favorites"
+            icon='heart'
+          />
+        </Menu.Item>
+        <Menu.Item>
+          <Banner user={user}>
 
-      </Banner>
+          </Banner>
 
-      </Menu.Item>
-      
-    </Menu>
-  
+        </Menu.Item>
+
+      </Menu>
+      <br /><br /><br /><br /><br /><br />
+    </div>
+
   )
-} 
+}
 
 export default TopMenu

@@ -50,10 +50,7 @@ const EquipmentForm = () => {
     muscleGroups,
     addMuscleGroup
   } = workoutContext;
-
   let a = update();
-  console.log(a);
-
   return (
     <Segment padded color="blue" style={{ width: "80%" }}>
       <Form size="large">
@@ -126,8 +123,7 @@ const EquipmentForm = () => {
           as={Link}
           to='/workouts'
           primary
-          disabled={!a}
-        >
+          disabled={!a}>
           GENERATE WORKOUT
         </Button>
       </Form>
