@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Segment, Form, Checkbox, Header, Button, Dropdown } from 'semantic-ui-react';
 import { EQUIPMENT_LIST, MUSCLE_LIST } from '../constants';
@@ -22,6 +22,11 @@ const roundOptions = [
     value: 4
   },
   {
+    key: 6,
+    text: '6 exercises',
+    value: 6
+  },
+  {
     key: 8,
     text: '8 exercises',
     value: 8
@@ -37,6 +42,7 @@ const EquipmentForm = () => {
   const workoutContext = useContext(WorkoutContext);
   const {
     equipment,
+    update,
     addEquip,
     generateWorkouts,
     exercisesAmount,
@@ -44,6 +50,9 @@ const EquipmentForm = () => {
     muscleGroups,
     addMuscleGroup
   } = workoutContext;
+
+  let a = update();
+  console.log(a);
 
   return (
     <Segment padded color="blue" style={{ width: "80%" }}>
@@ -99,17 +108,17 @@ const EquipmentForm = () => {
           </Header>
         </Form.Field>
         <Form.Field>
-        {MUSCLE_LIST.map(item => {
-          return (
-            <Form.Field key={item.id} style={{ textAlign: "left" }}>
-              <Checkbox
-                label={item.title}
-                value={item.title}
-                checked={muscleGroups.includes(item.title)}
-                onChange={(e, { value }) => addMuscleGroup(value)} />
-            </Form.Field>
-          )
-        })}
+          {MUSCLE_LIST.map(item => {
+            return (
+              <Form.Field key={item.id} style={{ textAlign: "left" }}>
+                <Checkbox
+                  label={item.title}
+                  value={item.title}
+                  checked={muscleGroups.includes(item.title)}
+                  onChange={(e, { value }) => addMuscleGroup(value)} />
+              </Form.Field>
+            )
+          })}
         </Form.Field>
         <Button
           onClick={generateWorkouts}
@@ -117,6 +126,7 @@ const EquipmentForm = () => {
           as={Link}
           to='/workouts'
           primary
+          disabled={!a}
         >
           GENERATE WORKOUT
         </Button>
