@@ -39,10 +39,10 @@ const roundOptions = [
 ];
 
 const EquipmentForm = () => {
-  const [possible, setPossible] = useState(false);
   const workoutContext = useContext(WorkoutContext);
   const {
     equipment,
+    update,
     addEquip,
     generateWorkouts,
     exercisesAmount,
@@ -51,14 +51,8 @@ const EquipmentForm = () => {
     addMuscleGroup
   } = workoutContext;
 
-  const update = () => {
-    if (equipment.length > 0 && muscleGroups.length > 1) {
-      setPossible(true);
-    }
-    else {
-      setPossible(false);
-    }
-  }
+  let a = update();
+  console.log(a);
 
   return (
     <Segment padded color="blue" style={{ width: "80%" }}>
@@ -132,7 +126,7 @@ const EquipmentForm = () => {
           as={Link}
           to='/workouts'
           primary
-          disabled={!possible}
+          disabled={!a}
         >
           GENERATE WORKOUT
         </Button>
