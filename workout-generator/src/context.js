@@ -34,17 +34,13 @@ const StateProvider = ({ children }) => {
 
 
   const addEquip = value => {
-    equipment.includes(value) ?
-      setEquipment(equipment.filter(x => x !== value)) :
-      setEquipment([...equipment, value])
+    equipment.includes(value) ? setEquipment(equipment.filter(x => x !== value)) : setEquipment([...equipment, value]);
   }
 
   const addMuscleGroup = value => {
-    muscleGroups.includes(value)?
-      setMuscleGroups(muscleGroups.filter(x => x !== value)):
-      setMuscleGroups([...muscleGroups, value])
-
+    muscleGroups.includes(value)? setMuscleGroups(muscleGroups.filter(x => x !== value)):setMuscleGroups([...muscleGroups, value]);
   }
+
   const toggleFavs = value => {
     favworkouts.map(val => val.Title).includes(value.Title) ?
       setFavworkouts(favworkouts.filter(x => x.Title !== value.Title)) :
