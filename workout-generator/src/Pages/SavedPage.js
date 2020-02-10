@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Grid, Icon, Card } from 'semantic-ui-react';
+import { Grid, Card } from 'semantic-ui-react';
 import SavedList from '../Components/SavedList';
 import { WorkoutContext } from '../context';
 
@@ -10,13 +10,13 @@ const SavedPage = () => {
 
   return (
     <Grid centered style={{ marginTop: "20px"}}>
-      { favworkouts.length === 0 ? <EmptyDisplay />
+      { favworkouts.length === 0 ? <NoFavesMessage />
       : <SavedList /> }
     </Grid>
   );
 };
 
-const EmptyDisplay = () =>
+const NoFavesMessage = () =>
   <Card style={{ textAlign: "left", width: "80%", marginTop: "20px"}}>
     <Card.Content>
       <Card.Header content="Your Favourites list is empty!" />

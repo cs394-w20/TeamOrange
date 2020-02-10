@@ -5,6 +5,7 @@ import SplashPage from './Pages/SplashPage';
 import WorkoutsPage from './Pages/WorkoutsPage';
 import TopMenu from './Components/TopMenu';
 import SavedWorkoutsPage from './Pages/SavedPage';
+import ProfilePage from './Pages/ProfilePage'
 import { WorkoutContext } from './context';
 
 
@@ -43,6 +44,10 @@ const App = () => {
       <Route
         path='/saved-workouts'
         render={() => withMenu(<SavedWorkoutsPage />)}
+      />
+      <Route
+        path='/profile'
+        render={() => withMenu(<ProfilePage />)}
       />
     </BrowserRouter>
   );
