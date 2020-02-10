@@ -5,7 +5,7 @@ import ModalWindow from '../Components/ModalWindow';
 
 const SplashPage = () => {
   return (
-    <Grid centered style={{ marginTop: "15px" }}>
+    <Grid centered style={{ marginTop: "20px" }}>
       <Grid.Row>
         <ModalWindow />
         <EquipmentForm />

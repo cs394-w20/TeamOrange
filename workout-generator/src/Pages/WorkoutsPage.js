@@ -40,7 +40,7 @@ const WorkoutsPage = () => {
 
 const WorkoutListHeader = ({ selectedEquipment, exercisesAmount, setWorkingOut }) => {
   return (
-    <Segment color="blue" style={{ width: "80%", textAlign: "left" }}>
+    <Segment color="blue" style={{ width: "80%", textAlign: "left", marginTop: "20px"}}>
       <Header dividing as="h3">
         <Header textAlign="center" dividing color="blue">
           Preview Workout
