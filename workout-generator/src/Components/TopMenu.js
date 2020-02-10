@@ -3,10 +3,11 @@ import { Header, Menu, GridColumn } from 'semantic-ui-react';
 import { useLocation, Link } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import {firebaseref, firebase }from '../firebaseDb';
-import 'firebase/database';	
+import 'firebase/database'; 
 import "firebase/auth";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import {Grid, Box, Button} from '@material-ui/core'
+
 
 
 
@@ -19,6 +20,7 @@ const TopMenu = () => {
 
   }, []);
   const Banner = ({ user }) => (
+
     <div>
       { user ? <Welcome user={ user } /> : <SignIn /> }
     </div>
