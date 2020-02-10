@@ -11,7 +11,7 @@ const WorkoutList = () => {
   const workoutList = workouts
 
   return (
-    <Card.Group style={{ textAlign: "left", width: "80%"}} itemsPerRow={1}> 
+    <Card.Group style={{ textAlign: "left", width: "80%", marginTop: "10px"}} itemsPerRow={1}> 
       {workoutList.map(exercise => {
         return (
           <Workout 

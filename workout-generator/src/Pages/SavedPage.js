@@ -17,7 +17,7 @@ const SavedPage = () => {
 };
 
 const EmptyDisplay = () =>
-  <Card style={{ textAlign: "left", width: "80%", marginTop: "50px"}}>
+  <Card style={{ textAlign: "left", width: "80%", marginTop: "20px"}}>
     <Card.Content>
       <Card.Header content="Your Favourites list is empty!" />
       <Card.Description>
