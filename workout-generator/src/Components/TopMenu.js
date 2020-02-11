@@ -1,8 +1,6 @@
 import React from 'react';
 import { Header, Menu } from 'semantic-ui-react';
 import { useLocation, Link } from 'react-router-dom';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import { Grid, Box, Button } from '@material-ui/core'
 
 
 const TopMenu = ({user}) => {
@@ -31,7 +29,7 @@ const TopMenu = ({user}) => {
         <Header
           as="h4"
           color="blue"
-          content="My Profile"
+          content={user ? "My Profile" : "Sign In"}
           icon='user'
         />
       </Menu.Item>
