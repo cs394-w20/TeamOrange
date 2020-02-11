@@ -2,31 +2,36 @@ import React, { useState } from 'react';
 import { Card, Embed, Button, Accordion } from 'semantic-ui-react';
 
 
-const Workout = ({ exercise, setCountdown, toggleFavs, favworkouts , replaceWorkout, refresh}) =>{
+const Workout = ({ exercise, toggleFavs, favworkouts , replaceWorkout, refresh, user, saved}) =>{
   const [videoHidden, setVideoHidden] = useState(false)
   
   console.log(exercise.Title);
   return (
     <Card color="blue">
       <Card.Content>
-        <Button
-          floated="right"
-          icon={favworkouts.includes(exercise) ? "heart" : "heart outline"}
-          basic={favworkouts.includes(exercise) ? false : true}
-          color="blue"
-          onClick={() => toggleFavs(exercise)}
-        />
-        <Button
-          floated="right"
-          color="blue"
-          basic
-          icon="exchange"
-          content="Swap"
-          onClick={() => {
-            replaceWorkout(exercise);
-            refresh();
-          }}
-        />
+        {user ? 
+          <Button
+            floated="right"
+            icon={favworkouts.includes(exercise) ? "heart" : "heart outline"}
+            basic={favworkouts.includes(exercise) ? false : true}
+            color="blue"
+            onClick={() => toggleFavs(exercise)}
+          />
+        : null}
+        {!saved ? 
+          <Button
+            floated="right"
+            color="blue"
+            basic
+            icon="exchange"
+            content="Swap"
+            onClick={() => {
+              replaceWorkout(exercise);
+              refresh();
+            }}
+          />
+          : null
+        }
         <Card.Header>{exercise.Title}</Card.Header>
         <Card.Meta>Duration: {exercise.Duration} seconds</Card.Meta>
         <Card.Meta>Equipment: {exercise.Equipment}</Card.Meta>

@@ -4,7 +4,7 @@ import Workout from '../Components/Workout';
 import { WorkoutContext } from '../context';
 
 
-const SavedWorkouts = () => {
+const SavedWorkouts = ({ user }) => {
   const workoutContext = useContext(WorkoutContext)
   const {favworkouts, toggleFavs, setCountdown, replaceWorkout} = workoutContext;
 
@@ -13,6 +13,8 @@ const SavedWorkouts = () => {
       {favworkouts.map(exercise => {
         return (
           <Workout 
+            user={user}
+            saved={true}
             exercise={exercise} 
             key={exercise.Title}   
             replaceWorkout={replaceWorkout} 

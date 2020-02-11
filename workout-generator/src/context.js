@@ -33,6 +33,7 @@ const StateProvider = ({ children }) => {
   const [currentWorkoutID, setCurrentWorkoutID] = useState(0);
   const [displayList, setDisplayList] = useState([]);
 
+  
   const update = () => {
     
     if (equipment.length > 0 && muscleGroups.length > 1) {

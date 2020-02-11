@@ -4,7 +4,7 @@ import Workout from './Workout';
 import { WorkoutContext } from '../context';
 
 
-const WorkoutList = () => {
+const WorkoutList = ({ user }) => {
   const workoutContext = useContext(WorkoutContext)
   const { workouts, setCountdown, toggleFavs, favworkouts, replaceWorkout } = workoutContext;
   const [refresh, setRefresh] = useState(false)
@@ -15,6 +15,7 @@ const WorkoutList = () => {
       {workoutList.map(exercise => {
         return (
           <Workout 
+            user={user}
             exercise={exercise} 
             key={exercise.Title}
             replaceWorkout={replaceWorkout}

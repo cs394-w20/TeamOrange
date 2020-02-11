@@ -1,16 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 import SplashPage from './Pages/SplashPage';
 import WorkoutsPage from './Pages/WorkoutsPage';
 import TopMenu from './Components/TopMenu';
-import SavedWorkoutsPage from './Pages/SavedPage';
-import ProfilePage from './Pages/ProfilePage'
+import ProfilePage from './Pages/ProfilePage';
 import { WorkoutContext } from './context';
-
-
+import { firebase }from './firebaseDb';
+import 'firebase/database';
+import "firebase/auth";
 
 const App = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(setUser);
+  }, []);
   
 
   const workoutContext = useContext(WorkoutContext)
@@ -19,12 +24,12 @@ const App = () => {
   console.log('equip', equipment)
   console.log('muscle groups', muscleGroups)
   console.log('workout list', workouts)
+  console.log(user)
 
   const withMenu = (page) => {
     return (
       <Container>
-        <TopMenu/>
-        
+        <TopMenu user={user} />
         {page}
       </Container>
     )
@@ -39,15 +44,11 @@ const App = () => {
       />
       <Route
         path='/workouts'
-        render={() => withMenu(<WorkoutsPage />)}
-      />
-      <Route
-        path='/saved-workouts'
-        render={() => withMenu(<SavedWorkoutsPage />)}
+        render={() => withMenu(<WorkoutsPage user={user} />)}
       />
       <Route
         path='/profile'
-        render={() => withMenu(<ProfilePage />)}
+        render={() => withMenu(<ProfilePage user={user} />)}
       />
     </BrowserRouter>
   );

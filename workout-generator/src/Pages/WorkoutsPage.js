@@ -5,7 +5,7 @@ import ActiveWorkoutTimer from '../Components/ActiveWorkoutTimer';
 import { Link } from 'react-router-dom';
 import { WorkoutContext } from '../context';
 
-const WorkoutsPage = () => {
+const WorkoutsPage = ({user}) => {
   const workoutContext = useContext(WorkoutContext);
   const { equipment, exercisesAmount, generateDisplayList } = workoutContext;
 
@@ -30,7 +30,7 @@ const WorkoutsPage = () => {
         />
       </Grid.Row>
       <Grid.Row>
-        <WorkoutList />
+        <WorkoutList user={user} />
       </Grid.Row>
     </Grid>
     :
