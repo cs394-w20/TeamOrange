@@ -1,0 +1,40 @@
+{
+    "0":
+        {
+            "Game": "Monopoly",
+	        "id":0,
+            "Rating": "5",
+            "Players": [3,5],
+            "Genre": ["Money","Thriller"],
+            "Description": "Monopoly, real-estate board game for two to eight players, in which the player's goal is to remain financially solvent while forcing opponents into bankruptcy by buying and developing pieces of property."
+        },
+	"1": 
+        {
+            "Game": "Cards Against Humanity",
+	        "id":1,
+            "Rating": "5",
+            "Players": [5, 10],
+            "Genre": ["Thriller","Party"],
+            "Description": "Cards Against Humanity is a party game for horrible people. Unlike most of the party games you've played before, Cards Against Humanity is as despicable and awkward as you and your friends."
+        
+        },
+	"2":
+        {
+            "Name": "Exploding Kittens",
+	        "id":2,
+            "Rating": "4",
+            "Players": [2,5],
+            "Description": "Exploding Kittens is a highly strategic kitty-powered version of Russian Roulette.",
+            "Genre": ["Humor","Casual"]
+
+        },
+	"3":
+        {
+            "Name": "Catan",
+	        "id":3,
+            "Rating": "3",
+            "Players": [3,5],
+            "Genre": ["Strategy","Casual"],
+            "Description":"In Catan, players are recent immigrants to the newly populated island of Catan."
+        }
+}
