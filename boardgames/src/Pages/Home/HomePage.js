@@ -1,6 +1,7 @@
 import React, { useContext, createRef } from 'react';
-import { AppState } from '../context';
-import { Grid, Header, Container, Card, Image, Segment, Sticky } from 'semantic-ui-react';
+import { AppState } from '../../context';
+import Games from './Games';
+import { Button, Header, Container, Segment, Sticky, Grid, Input } from 'semantic-ui-react';
 
 const HomePage = () => {
   const state = useContext(AppState);
@@ -8,25 +9,21 @@ const HomePage = () => {
   console.log(data)
   const contextRef = createRef();
 
-  const Games = () => {
-    return (
-      <Card.Group itemsPerRow={1}>
-        {data.map(game => 
-          <Card>
-            <Image src={game.image} size="medium" />
-          </Card>
-        )}
-      </Card.Group>
-    );
-  }
-
   return (
     <div ref={contextRef}>
       <Sticky context={contextRef}>
         <PageHeader />
       </Sticky>
       <Container>
-        <Games />
+        <Grid padded textAlign="center">
+          <Grid.Row>
+            <Input icon='search' iconPosition='left' placeholder="Search..." />
+            <Button style={{ marginLeft: "20px"}} basic content="Filter" />
+          </Grid.Row>
+          <Grid.Row>
+            <Games data={data} />
+          </Grid.Row>
+        </Grid>
       </Container>
     </div>
   );
@@ -38,11 +35,11 @@ const PageHeader = () => {
       basic
       attached='top'
       style={{ backgroundColor: "orange", textAlign: "center" }}
-      fluid
+      fluid="true"
     >
       <Header content="Marketplace" size="large" />
     </Segment>
   );
-}
+};
 
 export default HomePage;
