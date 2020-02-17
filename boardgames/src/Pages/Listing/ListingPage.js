@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { AppState } from '../../context';
 import { Grid, Image, Button, Header, Label, Container, Divider, Card } from 'semantic-ui-react';
 
-const ListingPage = ({ listing }) => {
+const ListingPage = () => {
+  const appState = useContext(AppState);
+  const { data } = appState;
+
+  const { id } = useParams(); 
+  const listing = data[id];
+
+  console.log(id)
   return (
     <Container>
       <Grid>

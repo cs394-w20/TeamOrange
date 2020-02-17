@@ -9,7 +9,7 @@
       "lender": "johnsmith34",
       "minPlayers": "3",
       "maxPlayers": "5",
-      "genre": ["Money", "Thriller"],
+      "tags": ["Money", "Thriller"],
       "description": "Monopoly, real-estate board game for two to eight players, in which the player's goal is to remain financially solvent while forcing opponents into bankruptcy by buying and developing pieces of property."
     },
 	"1": 
@@ -22,9 +22,8 @@
       "rating": "5",
       "minPlayers": "5",
       "maxPlayers": "10",
-      "genre": ["Thriller", "Party"], 
+      "tags": ["Thriller", "Party"], 
       "description": "Cards Against Humanity is a party game for horrible people. Unlike most of the party games you've played before, Cards Against Humanity is as despicable and awkward as you and your friends."
-    
     },
 	"2":
     {
@@ -38,7 +37,6 @@
       "maxPlayers": "5",
       "description": "Exploding Kittens is a highly strategic kitty-powered version of Russian Roulette.",
       "genre": ["Humor", "Casual"]
-
     },
 	"3":
     {
