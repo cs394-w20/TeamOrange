@@ -13,7 +13,6 @@ function App() {
     return () => { db.off('value', handleData); };
   }, []);
 
-
   return (
     <div className="App">
       <header className="App-header">
