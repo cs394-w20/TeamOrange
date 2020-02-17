@@ -1,11 +1,12 @@
 import React from 'react';
 import { Card, Icon, Header, Button, Image } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const Games = ({ data }) => {
   return (
     <Card.Group itemsPerRow={1}>
       {data.map(game => 
-        <Card key={game.id}>
+        <Card key={game.id} as={Link} to={`/${game.id}`}>
           <Card.Content>
             <Header style={{fontWeight: "lighter", fontSize: "12px"}} floated='right' content={game.distance} />
             <Card.Header content={game.game} />
