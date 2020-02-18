@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppState } from '../../context';
-import { Grid, Image, Button, Header, Label, Container, Divider, Card } from 'semantic-ui-react';
+import { Grid, Feed, Rating, Image, Button, Header, Label, Container} from 'semantic-ui-react';
 
 const ListingPage = () => {
   const appState = useContext(AppState);
   const { data } = appState;
 
-  const { id } = useParams(); 
+  const { id } = useParams();
   const listing = data[id];
 
   console.log(id)
@@ -17,22 +17,43 @@ const ListingPage = () => {
         <Grid.Row>
           <Image src={listing.images[0]} />
         </Grid.Row>
-        <Grid.Row style={{ margin: "0px 10px 0px 10px "}}>
-          <Header>
+        <Grid.Row style={{ margin: "0px 10px 0px 10px " }}>
+          <Header size="large">
             {listing.game}
             <Header.Subheader
               content={`${listing.minPlayers}-${listing.maxPlayers} Players`}
-              style={{ fontStyle: "italic", color: "black"}}
-            />
+              style={{ fontStyle: "italic", color: "black" }} />
+            <br />
             <Header.Subheader content={listing.description} />
           </Header>
         </Grid.Row>
-        <Divider />
-        <Grid.Row style={{ margin: "0px 10px 0px 10px "}}>
+        <Grid.Row style={{ margin: "0px 10px 0px 10px " }}>
           <Header size="small">
-            Tags: 
+            Tags:
             {listing.genre.map(g => <Label content={g} />)}
           </Header>
+        </Grid.Row>
+        <Feed>
+          <Header size="small">
+            Owner
+          </Header>
+          <Feed.Event>
+            <Feed.Label image='./assets/cards_against_humanity/1.png' />
+            <Feed.Content>
+              <Feed.Summary>
+                John Smith<br />
+                <Feed.Date content='johnsmith335' />
+                <br />
+                <Rating defaultRating={3} maxRating={5} disabled />
+              </Feed.Summary>
+            </Feed.Content>
+          </Feed.Event>
+        </Feed>
+        <Grid.Row style={{display: "flex",
+            justifyContent: "center",
+            alignItems: "center",}}>
+            <Button>Contact User</Button>
+            <Button color='yellow' >Request Rental</Button>
         </Grid.Row>
       </Grid>
     </Container>
