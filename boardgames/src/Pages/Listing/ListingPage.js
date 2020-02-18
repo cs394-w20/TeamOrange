@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { AppState } from '../../context';
-import { Grid, Feed, Rating, Image, Button, Header, Label, Container} from 'semantic-ui-react';
+import { Grid, Feed, Rating, Segment, Image, Button, Header, Label, Container } from 'semantic-ui-react';
 
 const ListingPage = () => {
   const appState = useContext(AppState);
@@ -10,11 +10,24 @@ const ListingPage = () => {
   const { id } = useParams();
   const listing = data[id];
 
-  console.log(id)
   return (
     <Container>
       <Grid>
         <Grid.Row>
+          <Segment
+            basic
+            attached='top'
+            style={{ backgroundColor: "orange"}}
+            fluid="false"
+          >
+            <Header content="" size="large">
+              <Button 
+              style={{ backgroundColor: "orange"}}
+              icon="arrow left" 
+              as={Link}
+              to='/'/>
+            </Header>
+          </Segment>
           <Image src={listing.images[0]} />
         </Grid.Row>
         <Grid.Row style={{ margin: "0px 10px 0px 10px " }}>
@@ -22,7 +35,7 @@ const ListingPage = () => {
             {listing.game}
             <Header.Subheader
               content={`${listing.minPlayers}-${listing.maxPlayers} Players`}
-              style={{ fontStyle: "italic", color: "black" }} 
+              style={{ fontStyle: "italic", color: "black" }}
             />
             <Header.Subheader content={listing.description} />
           </Header>
@@ -49,11 +62,13 @@ const ListingPage = () => {
             </Feed.Content>
           </Feed.Event>
         </Feed>
-        <Grid.Row style={{display: "flex",
-            justifyContent: "center",
-            alignItems: "center",}}>
-            <Button>Contact User</Button>
-            <Button color='yellow' >Request Rental</Button>
+        <Grid.Row style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}>
+          <Button>Contact User</Button>
+          <Button color='yellow' >Request Rental</Button>
         </Grid.Row>
       </Grid>
     </Container>
