@@ -18,12 +18,12 @@ const ListingPage = () => {
           <Image src={listing.images[0]} />
         </Grid.Row>
         <Grid.Row style={{ margin: "0px 10px 0px 10px " }}>
-          <Header size="large">
+          <Header>
             {listing.game}
             <Header.Subheader
               content={`${listing.minPlayers}-${listing.maxPlayers} Players`}
-              style={{ fontStyle: "italic", color: "black" }} />
-            <br />
+              style={{ fontStyle: "italic", color: "black" }} 
+            />
             <Header.Subheader content={listing.description} />
           </Header>
         </Grid.Row>
