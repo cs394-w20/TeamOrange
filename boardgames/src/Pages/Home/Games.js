@@ -3,6 +3,8 @@ import { Card, Icon, Header, Button, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const Games = ({ data }) => {
+  console.log("DATA FROM GAMES:")
+  console.log(data)
   return (
     <Card.Group itemsPerRow={1}>
       {data.map(game => 
