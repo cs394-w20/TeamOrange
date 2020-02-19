@@ -12,18 +12,20 @@ const HomePage = () => {
 
   function handleMessage(input) {
     setSearched(input.target.value); 
+    console.log("this is searched")
     console.log(searched); 
+    updateData(input.target.value);
   }
-  function updateData(){
+  function updateData(searched){
     console.log("reached updateData")
     const temp=data;
-    const temp2=data.filter(item=>(item.game===searched));
+    const temp2=data.filter(item=>(item.game.toUpperCase().indexOf(searched.toUpperCase()) !== -1));
     
     setRelevantGames(searched !== "" ? temp2 : temp);
     console.log("new relevant games");
     console.log(relevantGames);
   }
-
+  
   return (
     <div ref={contextRef}>
       <Sticky context={contextRef}>
@@ -33,7 +35,7 @@ const HomePage = () => {
         <Grid padded textAlign="center">
           <Grid.Row>
             <Input onChange={handleMessage.bind(this)} icon='search' iconPosition='left' placeholder="Search..." />
-            <Button style={{ marginLeft: "20px"}}  onClick={updateData}  basic content="Filter" /> 
+            <Button style={{ marginLeft: "20px"}}  basic content="Filter" /> 
           </Grid.Row>
           <Grid.Row>
             <Games data={relevantGames} />
